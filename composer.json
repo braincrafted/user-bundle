@@ -1,0 +1,21 @@
+{
+    "name":         "braincrafted/user-bundle",
+    "description":  "",
+    "keywords":     ["user"],
+    "type":         "symfony-bundle",
+    "license":      "MIT",
+    "authors":     [
+        {
+            "name":     "Florian Eckerstorfer",
+            "email":    "florian@theroadtojoy.at",
+            "homepage": "http://florianeckerstorfer.com"
+        }
+    ],
+    "require":      {
+        "php":                              ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": { "Bc\\Bundle\\UserBundle": "" }
+    },
+    "target-dir": "Bc/Bundle/UserBundle"
+}
