@@ -12,7 +12,8 @@
         }
     ],
     "require":      {
-        "php":                              ">=5.3.3"
+        "php":                              ">=5.3.3",
+        "friendsofsymfony/user-bundle":     "*"
     },
     "autoload": {
         "psr-0": { "Bc\\Bundle\\UserBundle": "" }
