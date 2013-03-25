@@ -21,6 +21,9 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class UpdateUserType extends AbstractType
 {
+    /**
+     * {@inheritDoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('username', 'text');
@@ -30,8 +33,11 @@ class UpdateUserType extends AbstractType
         ));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getName()
     {
-        return 'createUser';
+        return 'updateUser';
     }
 }
