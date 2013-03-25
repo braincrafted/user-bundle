@@ -1,6 +1,7 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle
+ * This file is part of braincrafted/user-bundle.
+ *
  * (c) 2013 by Florian Eckerstorfer
  */
 
