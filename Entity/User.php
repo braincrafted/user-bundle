@@ -21,6 +21,16 @@ use FOS\UserBundle\Model\User as AbstractUser;
 class User extends AbstractUser
 {
     /**
+     * Constructor.
+     *
+     */
+    public function __construct()
+    {
+        $this->setEnabled(true);
+        parent::__construct();
+    }
+
+    /**
      * Returns the ID of the user.
      *
      * @return integer The ID

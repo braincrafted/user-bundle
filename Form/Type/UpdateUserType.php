@@ -32,6 +32,7 @@ class UpdateUserType extends AbstractType
         $builder->add('plainPassword', 'password', array(
             'label' => 'Password'
         ));
+        $builder->add('enabled', 'checkbox');
     }
 
     /**
