@@ -27,12 +27,25 @@ class UpdateUserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username', 'text');
-        $builder->add('email', 'text');
-        $builder->add('plainPassword', 'password', array(
-            'label' => 'Password'
-        ));
-        $builder->add('enabled', 'checkbox');
+        $builder->add(
+            'username',
+            'text',
+            array('label' => 'form.username', 'translation_domain' => 'BcUserBundle')
+        );
+        $builder->add(
+            'email',
+            'text',
+            array('label' => 'form.email', 'translation_domain' => 'BcUserBundle')
+        );
+        $builder->add(
+            'plainPassword',
+            'password',
+            array('label' => 'form.password', 'translation_domain' => 'BcUserBundle'));
+        $builder->add(
+            'enabled',
+            'checkbox',
+            array('label' => 'form.enabled', 'translation_domain' => 'BcUserBundle')
+        );
     }
 
     /**

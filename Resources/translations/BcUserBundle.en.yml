@@ -1,0 +1,5 @@
+form:
+    username: Username
+    email: Email
+    password: Password
+    enabled: Enabled?
