@@ -1,1 +1,5 @@
 vendor/
+
+# Auto completion with CTags
+.tags
+.tags_sorted_by_file
