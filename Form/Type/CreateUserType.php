@@ -7,12 +7,10 @@
 
 namespace Bc\Bundle\UserBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * UpdateUserType
+ * CreateUserType
  *
  * @package     braincrafted/user-bundle
  * @subpackage  Form.Type
@@ -20,27 +18,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  * @copyright   2013 Florian Eckerstorfer
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-class UpdateUserType extends AbstractType
+class CreateUserType extends UpdateUserType
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('username', 'text');
-        $builder->add('email', 'text');
-        $builder->add('plainPassword', 'password', array(
-            'label' => 'Password'
-        ));
-    }
-
     /**
      * {@inheritDoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'validation_groups' => array('update'),
+            'validation_groups' => array('create'),
         ));
     }
 
@@ -49,6 +35,6 @@ class UpdateUserType extends AbstractType
      */
     public function getName()
     {
-        return 'updateUser';
+        return 'createUser';
     }
 }

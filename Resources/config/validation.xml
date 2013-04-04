@@ -9,37 +9,64 @@
         <property name="username">
             <constraint name="NotBlank">
                 <option name="message">fos_user.username.blank</option>
+                <option name="groups">
+                    <value>create</value>
+                    <value>update</value>
+                </option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fos_user.username.short</option>
                 <option name="max">255</option>
                 <option name="maxMessage">fos_user.username.long</option>
+                <option name="groups">
+                    <value>create</value>
+                    <value>update</value>
+                </option>
             </constraint>
         </property>
 
         <property name="email">
             <constraint name="NotBlank">
                 <option name="message">fos_user.email.blank</option>
+                <option name="groups">
+                    <value>create</value>
+                    <value>update</value>
+                </option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fos_user.email.short</option>
                 <option name="max">254</option>
                 <option name="maxMessage">fos_user.email.long</option>
+                <option name="groups">
+                    <value>create</value>
+                    <value>update</value>
+                </option>
             </constraint>
             <constraint name="Email">
                 <option name="message">fos_user.email.invalid</option>
+                <option name="groups">
+                    <value>create</value>
+                    <value>update</value>
+                </option>
             </constraint>
         </property>
 
         <property name="plainPassword">
             <constraint name="NotBlank">
                 <option name="message">fos_user.password.blank</option>
+                <option name="groups">
+                    <value>create</value>
+                </option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="minMessage">fos_user.password.short</option>
+                <option name="groups">
+                    <value>create</value>
+                    <value>update</value>
+                </option>
             </constraint>
         </property>
     </class>
