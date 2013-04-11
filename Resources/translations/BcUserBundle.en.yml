@@ -5,3 +5,13 @@ form:
     enabled: Enabled?
     expired: Expired?
     expiresAt: Expires at
+
+registration:
+    have_account: Already have an account?
+    have_account_login: Login
+
+security:
+    login:
+        forgot_password: Forgot password?
+        no_account: Don't have an account?
+        no_account_register: Register

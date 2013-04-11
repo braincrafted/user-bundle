@@ -10,7 +10,8 @@
 
     <div class="control-group">
         <div class="controls">
-            Already have an account? <a href="{{ path('fos_user_security_login') }}">Login</a>
+            {{ 'registration.have_account'|trans({}, 'BcUserBundle') }}
+            <a href="{{ path('fos_user_security_login') }}">{{ 'registration.have_account_login'|trans({}, 'BcUserBundle') }}</a>
         </div>
     </div>
 
