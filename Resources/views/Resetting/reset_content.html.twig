@@ -1,0 +1,11 @@
+<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+
+    {{ form_widget(form, {'form_type': 'horizontal'}) }}
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-primary">{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}</button>
+        </div>
+    </div>
+
+</form>
