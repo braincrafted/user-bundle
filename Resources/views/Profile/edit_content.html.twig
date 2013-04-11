@@ -1,0 +1,11 @@
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+
+    {{ form_widget(form, {'form_type': 'horizontal'}) }}
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
+        </div>
+    </div>
+
+</form>
