@@ -1,0 +1,44 @@
+{% extends "BcUserBundle::layout.html.twig" %}
+
+{% block bc_user_content %}
+
+{% if error %}
+    <div class="alert alert-error">
+        {{ error|trans({}, 'FOSUserBundle') }}
+    </div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <div class="control-group">
+        <label class="control-label" for="username">
+            {{ 'security.login.username'|trans({}, 'FOSUserBundle') }}
+        </label>
+        <div class="controls">
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="password">
+            {{ 'security.login.password'|trans({}, 'FOSUserBundle') }}
+        </label>
+        <div class="controls">
+            <input type="password" id="password" name="_password" required="required">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label for="remember_me" class="checkbox">
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+            </label>
+            <button type="submit" id="_submit" name="_submit" class="btn">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+        </div>
+    </div>
+
+</form>
+
+{% endblock bc_user_content %}

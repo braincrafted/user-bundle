@@ -19,4 +19,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class BcUserBundle extends Bundle
 {
+    public function getParent()
+    {
+        return 'FOSUserBundle';
+    }
 }
