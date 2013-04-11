@@ -46,6 +46,21 @@ class UpdateUserType extends AbstractType
             'checkbox',
             array('label' => 'form.enabled', 'translation_domain' => 'BcUserBundle')
         );
+        $builder->add(
+            'expired',
+            'checkbox',
+            array('label' => 'form.expired', 'translation_domain' => 'BcUserBundle')
+        );
+        $builder->add(
+            'expiresAt',
+            'datetime',
+            array(
+                'date_widget'           => 'single_text',
+                'time_widget'           => 'single_text',
+                'label'                 => 'form.expiresAt',
+                'translation_domain'    => 'BcUserBundle'
+            )
+        );
     }
 
     /**

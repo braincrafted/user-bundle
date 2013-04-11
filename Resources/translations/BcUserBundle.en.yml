@@ -3,3 +3,5 @@ form:
     email: Email
     password: Password
     enabled: Enabled?
+    expired: Expired?
+    expiresAt: Expires at

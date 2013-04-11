@@ -39,4 +39,9 @@ class User extends AbstractUser
     {
         return $this->id;
     }
+
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
+    }
 }
