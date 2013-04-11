@@ -1,11 +1,3 @@
-form:
-    username: Username
-    email: Email
-    password: Password
-    enabled: Enabled?
-    expired: Expired?
-    expiresAt: Expires at
-
 registration:
     have_account: Already have an account?
     have_account_login: Login
