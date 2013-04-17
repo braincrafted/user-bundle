@@ -20,6 +20,9 @@ use FOS\UserBundle\Model\User as AbstractUser;
  */
 class User extends AbstractUser
 {
+    /** @var Invite */
+    protected $invite;
+
     /**
      * Constructor.
      *
@@ -43,5 +46,28 @@ class User extends AbstractUser
     public function getExpiresAt()
     {
         return $this->expiresAt;
+    }
+
+    /**
+     * Sets the invite.
+     *
+     * @param InviteInterf<ace $invite The invite
+     *
+     * @return User
+     */
+    public function setInvite(Invite $invite)
+    {
+        $this->invite = $invite;
+        return $this;
+    }
+
+    /**
+     * Returns the invite.
+     *
+     * @return Invite The invite
+     */
+    public function getInvite()
+    {
+        return $this->invite;
     }
 }

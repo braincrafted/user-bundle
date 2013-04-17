@@ -34,7 +34,7 @@ class BcUserExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        foreach (array() as $basename) {
+        foreach (array('services') as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
     }

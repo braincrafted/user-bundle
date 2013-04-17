@@ -2,6 +2,10 @@ registration:
     have_account: Already have an account?
     have_account_login: Login
 
+bc_user:
+    invite:
+        blank: Your invite is wrong.
+
 security:
     login:
         forgot_password: Forgot password?

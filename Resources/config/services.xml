@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="bc_user.registration.form.type" class="Bc\Bundle\UserBundle\Form\Type\RegistrationFormType">
+            <argument>%fos_user.model.user.class%</argument>
+            <tag name="form.type" alias="bc_user_registration" />
+        </service>
+
+        <service id="bc_user.invite.form.type" class="Bc\Bundle\UserBundle\Form\Type\InviteFormType">
+            <argument type="service" id="bc_user.invite.form.data_transformer" />
+            <tag name="form.type" alias="bc_invite" />
+        </service>
+
+        <service id="bc_user.invite.form.data_transformer" class="Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="bc_user.invite_manager" class="Bc\Bundle\UserBundle\Entity\InviteManager">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>Bc\Bundle\UserBundle\Entity\Invite</argument>
+        </service>
+
+    </services>
+
+</container>
