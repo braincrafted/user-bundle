@@ -11,3 +11,6 @@ security:
         forgot_password: Forgot password?
         no_account: Don't have an account?
         no_account_register: Register
+
+request_invite:
+    submit: Request an invite

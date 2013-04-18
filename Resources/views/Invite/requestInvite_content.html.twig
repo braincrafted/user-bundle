@@ -1,0 +1,11 @@
+<form action="{{ path('bc_user_request_invite') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+
+    {{ form_widget(form, {'form_type': 'horizontal'}) }}
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-primary">{{ 'request_invite.submit'|trans({}, 'BcUserBundle') }}</button>
+        </div>
+    </div>
+
+</form>

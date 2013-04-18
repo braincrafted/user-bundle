@@ -16,4 +16,31 @@
         </property>
     </class>
 
+    <class name="Bc\Bundle\UserBundle\Entity\InviteRequest">
+
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">fos_user.email.blank</option>
+                <option name="groups">
+                    <value>RequestInvite</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_user.email.short</option>
+                <option name="max">254</option>
+                <option name="maxMessage">fos_user.email.long</option>
+                <option name="groups">
+                    <value>RequestInvite</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">fos_user.email.invalid</option>
+                <option name="groups">
+                    <value>RequestInvite</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
 </constraint-mapping>

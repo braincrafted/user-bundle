@@ -8,6 +8,7 @@
 namespace Bc\Bundle\UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
@@ -30,6 +31,33 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('bc_user');
 
+        $this->addRequestInviteSection($rootNode);
+
         return $treeBuilder;
+    }
+
+    private function addRequestInviteSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('request_invite')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('form')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('type')->defaultValue('bc_user_request_invite')->end()
+                                ->scalarNode('handler')->defaultValue('bc_user.request_invite.form.handler.default')->end()
+                                ->scalarNode('name')->defaultValue('bc_user_request_invite_form')->end()
+                                ->arrayNode('validation_groups')
+                                    ->prototype('scalar')->end()
+                                    ->defaultValue(array('RequestInvite'))
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }
