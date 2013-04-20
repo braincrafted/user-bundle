@@ -13,7 +13,6 @@
     ],
     "require":      {
         "php":                              ">=5.3.3",
-        "stof/doctrine-extensions-bundle":  "dev-master",
         "friendsofsymfony/user-bundle":     "*"
     },
     "require-dev": {
@@ -22,7 +21,8 @@
         "instaclick/php-code-sniffer":          "dev-master",
         "phpmd/phpmd":                          "1.4.*",
         "nikic/php-parser":                     "dev-master",
-        "instaclick/symfony2-coding-standard":  "dev-master"
+        "instaclick/symfony2-coding-standard":  "dev-master",
+        "symfony/form":                         "2.2.*"
     },
     "autoload": {
         "psr-0": { "Bc\\Bundle\\UserBundle": "" }
