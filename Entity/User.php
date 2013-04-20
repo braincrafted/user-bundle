@@ -34,6 +34,18 @@ class User extends AbstractUser
     }
 
     /**
+     * Sets the ID.
+     *
+     * @param integer $id The ID
+     *
+     * @return void
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Returns the ID of the user.
      *
      * @return integer The ID

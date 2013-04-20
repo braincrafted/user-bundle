@@ -1,5 +1,6 @@
 vendor/
 phpunit.xml
+Resources/docs/code-coverage
 
 # Auto completion with CTags
 .tags

@@ -40,6 +40,17 @@ class InviteRequest
     }
 
     /**
+     * Sets the ID.
+     *
+     * @param integer $id The ID
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
      * Returns the ID.
      *
      * @return integer The ID

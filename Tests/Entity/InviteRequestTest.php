@@ -43,6 +43,18 @@ class InviteRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests the <code>setId()</code> and <code>getId()</code> methods.
+     *
+     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::setId()
+     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::getId()
+     */
+    public function testSetId_getId()
+    {
+        $this->inviteRequest->setId(42);
+        $this->assertEquals(42, $this->inviteRequest->getId());
+    }
+
+    /**
      * Tests the <code>setEmail()</code> and <code>getEmail()</code> methods.
      *
      * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::setEmail()
