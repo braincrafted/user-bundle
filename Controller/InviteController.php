@@ -1,4 +1,9 @@
 <?php
+/**
+ * This file is part of BcUserBundle.
+ *
+ * (c) 2013 Florian Eckerstorfer
+ */
 
 namespace Bc\Bundle\UserBundle\Controller;
 
@@ -17,12 +22,18 @@ use FOS\UserBundle\Model\UserInterface;
  */
 class InviteController extends ContainerAware
 {
+    /**
+     * Request invite action.
+     *
+     * @return string The response
+     */
     public function requestInviteAction()
     {
         $form = $this->container->get('bc_user.request_invite.form');
         $formHandler = $this->container->get('bc_user.request_invite.form.handler');
 
         $process = $formHandler->process();
+
         if ($process) {
             $inviteRequest = $form->getData();
             $authUser = true;
@@ -42,6 +53,11 @@ class InviteController extends ContainerAware
         );
     }
 
+    /**
+     * Request invite confirmed action.
+     *
+     * @return string The response
+     */
     public function requestInviteConfirmedAction()
     {
         return $this->container->get('templating')->renderResponse(
@@ -51,15 +67,24 @@ class InviteController extends ContainerAware
 
 
     /**
-     * @param string $action
-     * @param string $value
+     * Sets the flash message.
+     *
+     * @param string $action The action
+     * @param string $value  The message
+     *
+     * @return void
      */
-    protected function setFlash($action, $value)
+    private function setFlash($action, $value)
     {
         $this->container->get('session')->setFlash($action, $value);
     }
 
-    protected function getEngine()
+    /**
+     * Returns the templating engine.
+     *
+     * @return Symfony\Component\Templating\EngineInterface
+     */
+    private function getEngine()
     {
         return $this->container->getParameter('fos_user.template.engine');
     }

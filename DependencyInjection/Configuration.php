@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle.
+ * This file is part of BcUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
@@ -14,7 +14,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 /**
  * Configuration
  *
- * @package    braincrafted/user-bundle
+ * @package    BcUserBundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

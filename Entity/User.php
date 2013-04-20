@@ -12,16 +12,16 @@ use FOS\UserBundle\Model\User as AbstractUser;
 /**
  * User
  *
- * @package     BcUserBundle
- * @subpackage  Entity
- * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
- * @copyright   2013 Florian Eckerstorfer
- * @license     http://opensource.org/licenses/MIT The MIT License
+ * @package    BcUserBundle
+ * @subpackage Entity
+ * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright  2013 Florian Eckerstorfer
+ * @license    http://opensource.org/licenses/MIT The MIT License
  */
 class User extends AbstractUser
 {
     /** @var Invite */
-    protected $invite;
+    private $invite;
 
     /**
      * Constructor.
@@ -43,6 +43,11 @@ class User extends AbstractUser
         return $this->id;
     }
 
+    /**
+     * Returns the date the user expires at.
+     *
+     * @return \DateTime The date the user expires at
+     */
     public function getExpiresAt()
     {
         return $this->expiresAt;
@@ -52,13 +57,10 @@ class User extends AbstractUser
      * Sets the invite.
      *
      * @param InviteInterf<ace $invite The invite
-     *
-     * @return User
      */
     public function setInvite(Invite $invite)
     {
         $this->invite = $invite;
-        return $this;
     }
 
     /**

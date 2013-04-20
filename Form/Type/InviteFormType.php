@@ -1,6 +1,7 @@
 <?php
 /**
  * This file is part of BcUserBundle.
+ *
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -23,7 +24,7 @@ use Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
 class InviteFormType extends AbstractType
 {
     /** @var InviteToCodeTransformer */
-    protected $inviteTransformer;
+    private $inviteTransformer;
 
     /**
      * Constructor.

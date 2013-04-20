@@ -1,6 +1,7 @@
 <?php
 /**
  * This file is part of BcUserBundle.
+ *
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -11,11 +12,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 /**
  * InviteRequestManager
  *
- * @package     BcUserBundle
- * @subpackage  Entity
- * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
- * @copyright   2013 Florian Eckerstorfer
- * @license     http://opensource.org/licenses/MIT The MIT License
+ * @package    BcUserBundle
+ * @subpackage Entity
+ * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright  2013 Florian Eckerstorfer
+ * @license    http://opensource.org/licenses/MIT The MIT License
  */
 class InviteRequestManager
 {

@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle.
+ * This file is part of BcUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 /**
  * BcUserExtension
  *
- * @package    braincrafted/user-bundle
+ * @package    BcUserBundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -61,9 +61,11 @@ class BcUserExtension extends Extension
         $container->setAlias('bc_user.request_invite.form.handler', $config['form']['handler']);
         unset($config['form']['handler']);
 
-        $this->remapParametersNamespaces($config, $container, array(
-            'form' => 'bc_user.request_invite.form.%s',
-        ));
+        $this->remapParametersNamespaces(
+            $config,
+            $container,
+            array('form' => 'bc_user.request_invite.form.%s')
+        );
     }
 
     protected function remapParametersNamespaces(array $config, ContainerBuilder $container, array $namespaces)
@@ -77,6 +79,7 @@ class BcUserExtension extends Extension
             } else {
                 $namespaceConfig = $config;
             }
+
             if (is_array($map)) {
                 $this->remapParameters($namespaceConfig, $container, $map);
             } else {

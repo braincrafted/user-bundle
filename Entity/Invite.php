@@ -1,6 +1,7 @@
 <?php
 /**
  * This file is part of BcUserBundle.
+ *
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -70,13 +71,11 @@ class Invite
      *
      * @param string $email The email address
      *
-     * @return Invite
+     * @return void
      */
     public function setEmail($email)
     {
         $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -92,13 +91,11 @@ class Invite
     /**
      * Sets the send flag to <code>TRUE</code>.
      *
-     * @return Invite
+     * @return void
      */
     public function send()
     {
         $this->sent = true;
-
-        return $this;
     }
 
     /**
@@ -116,13 +113,11 @@ class Invite
      *
      * @param UserInterface $user The user
      *
-     * @return Invite
+     * @return void
      */
     public function setUser(UserInterface $user)
     {
         $this->user = $user;
-
-        return $this;
     }
 
     /**
@@ -140,13 +135,11 @@ class Invite
      *
      * @param \DateTime $createdAt The date the invite was created.
      *
-     * @return Invite
+     * @return void
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -164,13 +157,11 @@ class Invite
      *
      * @param \DateTime $updatedAt The date the invite was last updated at.
      *
-     * @return Invite
+     * @return void
      */
     public function setUpdatedAt(\DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     /**

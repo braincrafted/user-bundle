@@ -1,6 +1,7 @@
 <?php
 /**
  * This file is part of BcUserBundle.
+ *
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -24,6 +25,11 @@ class RequestInviteFormType extends AbstractType
     /** @var string */
     private $class;
 
+    /**
+     * Constructor.
+     *
+     * @param string $class The name of the data class
+     */
     public function __construct($class)
     {
         $this->class = $class;
@@ -37,6 +43,9 @@ class RequestInviteFormType extends AbstractType
         $builder->add('email', 'email');
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
