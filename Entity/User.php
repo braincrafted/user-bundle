@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle.
+ * This file is part of BcUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
@@ -12,7 +12,7 @@ use FOS\UserBundle\Model\User as AbstractUser;
 /**
  * User
  *
- * @package     braincrafted/user-bundle
+ * @package     BcUserBundle
  * @subpackage  Entity
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer

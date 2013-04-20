@@ -1,9 +1,20 @@
 <?php
+/**
+ * This file is part of BcUserBundle.
+ * (c) 2013 Florian Eckerstorfer
+ */
 
 namespace Bc\Bundle\UserBundle\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
-
+/**
+ * InviteRequest
+ *
+ * @package     BcUserBundle
+ * @subpackage  Entity
+ * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright   2013 Florian Eckerstorfer
+ * @license     http://opensource.org/licenses/MIT The MIT License
+ */
 class InviteRequest
 {
     /** @var integer */
@@ -23,12 +34,11 @@ class InviteRequest
         $this->setCreatedAt(new \DateTime());
     }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
+    /**
+     * Returns the ID.
+     *
+     * @return integer The ID
+     */
     public function getId()
     {
         return $this->id;

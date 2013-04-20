@@ -6,7 +6,6 @@
 
 namespace Bc\Bundle\UserBundle\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use FOS\UserBundle\Model\UserInterface;
 
 /**
@@ -16,9 +15,6 @@ use FOS\UserBundle\Model\UserInterface;
  * @subpackage Entity
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
- *
- * @ORM\Entity
- * @ORM\Table(name="invite")
  */
 class Invite
 {
@@ -31,18 +27,10 @@ class Invite
     /** @string */
     private $email;
 
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     */
+    /** @var \DateTime */
     private $createdAt;
 
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="update")
-     */
+    /** @var \DateTime */
     private $updatedAt;
 
     /**
@@ -68,7 +56,9 @@ class Invite
     }
 
     /**
-     * {@inheritDoc}
+     * Returns the invitation code.
+     *
+     * @return string The code
      */
     public function getCode()
     {
@@ -76,16 +66,23 @@ class Invite
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the email address of the invite.
+     *
+     * @param string $email The email address
+     *
+     * @return Invite
      */
     public function setEmail($email)
     {
         $this->email = $email;
+
         return $this;
     }
 
     /**
-     * {@inheritDoc}
+     * Returns the email address.
+     *
+     * @return string The email address
      */
     public function getEmail()
     {
@@ -93,16 +90,21 @@ class Invite
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the send flag to <code>TRUE</code>.
+     *
+     * @return Invite
      */
     public function send()
     {
         $this->sent = true;
+
         return $this;
     }
 
     /**
-     * {@inheritDoc}
+     * Returns if the send flag is set to <code>TRUE</code>.
+     *
+     * @return boolean TRUE if the invite was sent
      */
     public function isSent()
     {
@@ -110,16 +112,23 @@ class Invite
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the user associated with the invite.
+     *
+     * @param UserInterface $user The user
+     *
+     * @return Invite
      */
     public function setUser(UserInterface $user)
     {
         $this->user = $user;
+
         return $this;
     }
 
     /**
-     * {@inheritDoc}
+     * Retursn the user associated with the invite.
+     *
+     * @return UserInterface The user
      */
     public function getUser()
     {
@@ -127,7 +136,23 @@ class Invite
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the date the invite was created at.
+     *
+     * @param \DateTime $createdAt The date the invite was created.
+     *
+     * @return Invite
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Returns the date the invite was created at.
+     *
+     * @return \DateTime The date the invite was created at
      */
     public function getCreatedAt()
     {
@@ -135,7 +160,23 @@ class Invite
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the date the invite was last updated at.
+     *
+     * @param \DateTime $updatedAt The date the invite was last updated at.
+     *
+     * @return Invite
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Returns the date the invite was last updated at.
+     *
+     * @return \DateTime The date the invite was last updated at
      */
     public function getUpdatedAt()
     {
