@@ -24,16 +24,6 @@ class User extends AbstractUser
     private $invite;
 
     /**
-     * Constructor.
-     *
-     */
-    public function __construct()
-    {
-        $this->setEnabled(true);
-        parent::__construct();
-    }
-
-    /**
      * Sets the ID.
      *
      * @param integer $id The ID
