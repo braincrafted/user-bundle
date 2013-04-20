@@ -1,4 +1,9 @@
 <?php
+/**
+ * This file is part of BcUserBundle.
+ *
+ * (c) 2013 Florian Eckerstorfer
+ */
 
 namespace Bc\Bundle\UserBundle\Tests\Entity;
 
@@ -10,7 +15,13 @@ use Bc\Bundle\UserBundle\Entity\InviteRequest;
 /**
  * InviteRequestManagerTest
  *
- * @group unit
+ * @category    Tests
+ * @package     BcUserBundle
+ * @subpackage  Entity
+ * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright   2013 Florian Eckerstorfer
+ * @license     http://opensource.org/licenses/MIT The MIT License
+ * @group       unit
  */
 class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
 {

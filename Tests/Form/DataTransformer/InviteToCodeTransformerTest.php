@@ -1,4 +1,9 @@
 <?php
+/**
+ * This file is part of BcUserBundle.
+ *
+ * (c) 2013 Florian Eckerstorfer
+ */
 
 namespace Bc\Bundle\UserBundle\Tests\Form\DataTransformer;
 
@@ -9,7 +14,13 @@ use Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
 /**
  * InviteToCodeTransformerTest
  *
- * @group unit
+ * @category    Tests
+ * @package     BcUserBundle
+ * @subpackage  DataTransformer
+ * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright   2013 Florian Eckerstorfer
+ * @license     http://opensource.org/licenses/MIT The MIT License
+ * @group       unit
  */
 class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
 {
