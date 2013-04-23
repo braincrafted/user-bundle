@@ -37,5 +37,11 @@ class BcUserExtension extends Extension
         foreach (array() as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
+
+        if (!isset($config['registration']['enabled'])) {
+            throw new \InvalidArgumentException('The option "registration.enabled" must be set.');
+        }
+
+        $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
     }
 }

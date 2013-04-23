@@ -41,7 +41,10 @@
 
     <div class="control-group">
         <div class="controls">
-            <a href="{{ path('fos_user_resetting_request') }}">{{ 'security.login.forgot_password'|trans({}, 'BcUserBundle') }}</a> {{ 'security.login.no_account'|trans({}, 'BcUserBundle') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'security.login.no_account_register'|trans({}, 'BcUserBundle') }}</a>
+            <a href="{{ path('fos_user_resetting_request') }}">{{ 'security.login.forgot_password'|trans({}, 'BcUserBundle') }}</a>
+            {% if registration_enabled %}
+                {{ 'security.login.no_account'|trans({}, 'BcUserBundle') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'security.login.no_account_register'|trans({}, 'BcUserBundle') }}</a>
+            {% endif %}
         </div>
     </div>
 
