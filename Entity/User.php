@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle.
+ * This file is part of BcUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
@@ -12,22 +12,27 @@ use FOS\UserBundle\Model\User as AbstractUser;
 /**
  * User
  *
- * @package     braincrafted/user-bundle
- * @subpackage  Entity
- * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
- * @copyright   2013 Florian Eckerstorfer
- * @license     http://opensource.org/licenses/MIT The MIT License
+ * @package    BcUserBundle
+ * @subpackage Entity
+ * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright  2013 Florian Eckerstorfer
+ * @license    http://opensource.org/licenses/MIT The MIT License
  */
 class User extends AbstractUser
 {
+    /** @var Invite */
+    private $invite;
+
     /**
-     * Constructor.
+     * Sets the ID.
      *
+     * @param integer $id The ID
+     *
+     * @return void
      */
-    public function __construct()
+    public function setId($id)
     {
-        $this->setEnabled(true);
-        parent::__construct();
+        $this->id = $id;
     }
 
     /**
@@ -40,8 +45,33 @@ class User extends AbstractUser
         return $this->id;
     }
 
+    /**
+     * Returns the date the user expires at.
+     *
+     * @return \DateTime The date the user expires at
+     */
     public function getExpiresAt()
     {
         return $this->expiresAt;
+    }
+
+    /**
+     * Sets the invite.
+     *
+     * @param InviteInterf<ace $invite The invite
+     */
+    public function setInvite(Invite $invite)
+    {
+        $this->invite = $invite;
+    }
+
+    /**
+     * Returns the invite.
+     *
+     * @return Invite The invite
+     */
+    public function getInvite()
+    {
+        return $this->invite;
     }
 }

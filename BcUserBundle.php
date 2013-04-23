@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle.
+ * This file is part of BcUserBundle.
  *
  * (c) 2013 by Florian Eckerstorfer
  */
@@ -12,13 +12,16 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * BcUserBundle
  *
- * @package    braincrafted/user-bundle
- * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
- * @copyright  2013 Florian Eckerstorfer
- * @license    http://opensource.org/licenses/MIT The MIT License
+ * @package   BcUserBundle
+ * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright 2013 Florian Eckerstorfer
+ * @license   http://opensource.org/licenses/MIT The MIT License
  */
 class BcUserBundle extends Bundle
 {
+    /**
+     * {@inheritDoc}
+     */
     public function getParent()
     {
         return 'FOSUserBundle';

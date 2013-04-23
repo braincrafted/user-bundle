@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-bundle.
+ * This file is part of BcUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
@@ -9,13 +9,14 @@ namespace Bc\Bundle\UserBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * BcUserExtension
  *
- * @package    braincrafted/user-bundle
+ * @package    BcUserBundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -32,9 +33,9 @@ class BcUserExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        foreach (array() as $basename) {
+        foreach (array('services') as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
 
@@ -43,5 +44,55 @@ class BcUserExtension extends Extension
         }
 
         $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
+
+        if (!empty($config['request_invite'])) {
+            $this->loadInvite($config['request_invite'], $container, $loader);
+        }
+
+        $files = $container->getParameter('validator.mapping.loader.xml_files_loader.mapping_files');
+        $validationFile = __DIR__ . '/../Resources/config/validation/orm.xml';
+
+        if (is_file($validationFile)) {
+            $files[] = realpath($validationFile);
+            $container->addResource(new FileResource($validationFile));
+        }
+
+        $container->setParameter('validator.mapping.loader.xml_files_loader.mapping_files', $files);
+    }
+
+    private function loadInvite(array $config, ContainerBuilder $container, XmlFileLoader $loader)
+    {
+        $loader->load('invite.xml');
+
+        $container->setAlias('bc_user.request_invite.form.handler', $config['form']['handler']);
+        unset($config['form']['handler']);
+
+        $this->remapParametersNamespaces(
+            $config,
+            $container,
+            array('form' => 'bc_user.request_invite.form.%s')
+        );
+    }
+
+    protected function remapParametersNamespaces(array $config, ContainerBuilder $container, array $namespaces)
+    {
+        foreach ($namespaces as $ns => $map) {
+            if ($ns) {
+                if (!array_key_exists($ns, $config)) {
+                    continue;
+                }
+                $namespaceConfig = $config[$ns];
+            } else {
+                $namespaceConfig = $config;
+            }
+
+            if (is_array($map)) {
+                $this->remapParameters($namespaceConfig, $container, $map);
+            } else {
+                foreach ($namespaceConfig as $name => $value) {
+                    $container->setParameter(sprintf($map, $name), $value);
+                }
+            }
+        }
     }
 }
