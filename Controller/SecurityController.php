@@ -45,10 +45,10 @@ class SecurityController extends BaseSecurityController
         $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
 
         return $this->renderLogin(array(
-            'last_username' => $lastUsername,
-            'error'         => $error,
-            'csrf_token'    => $csrfToken,
-            'registration_enabled'  => $this->container->getParameter('bc_user.registration.enabled')
+            'last_username'             => $lastUsername,
+            'error'                     => $error,
+            'csrf_token'                => $csrfToken,
+            'registration_enabled'      => $this->container->getParameter('bc_user.registration.enabled')
         ));
     }
 }
