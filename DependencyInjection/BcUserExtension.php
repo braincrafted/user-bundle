@@ -42,8 +42,12 @@ class BcUserExtension extends Extension
         if (!isset($config['registration']['enabled'])) {
             throw new \InvalidArgumentException('The option "registration.enabled" must be set.');
         }
+        if (!isset($config['registration']['invite_required'])) {
+            throw new \InvalidArgumentException('The option "registration.invite_required" must be set.');
+        }
 
         $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
+        $container->setParameter('bc_user.registration.invite_required', $config['registration']['invite_required']);
 
         if (!empty($config['request_invite'])) {
             $this->loadInvite($config['request_invite'], $container, $loader);

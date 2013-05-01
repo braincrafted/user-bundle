@@ -8,7 +8,9 @@
 namespace Bc\Bundle\UserBundle\Form\Type;
 
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseRegistrationFormType;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -21,6 +23,24 @@ use Doctrine\ORM\EntityRepository;
  */
 class RegistrationFormType extends BaseRegistrationFormType
 {
+    /** @var string */
+    private $class;
+
+    /** @var boolean */
+    private $inviteRequired;
+
+    /**
+     * Constructor
+     *
+     * @param string  $class          The User class name
+     * @param boolean $inviteRequired TRUE if an invite is required for registration
+     */
+    public function __construct($class, $inviteRequired = false)
+    {
+        $this->class            = $class;
+        $this->inviteRequired   = $inviteRequired;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -28,7 +48,20 @@ class RegistrationFormType extends BaseRegistrationFormType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add('invite', 'bc_invite');
+        if ($this->inviteRequired) {
+            $builder->add('invite', 'bc_invite');
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class'        => $this->class,
+            'intention'         => 'registration'
+        ));
     }
 
     /**

@@ -10,10 +10,11 @@
             <constraint name="NotBlank">
                 <option name="message">bc_user.invite.blank</option>
                 <option name="groups">
-                    <value>Registration</value>
+                    <value>RegistrationWithInvite</value>
                 </option>
             </constraint>
         </property>
+
     </class>
 
     <class name="Bc\Bundle\UserBundle\Entity\InviteRequest">

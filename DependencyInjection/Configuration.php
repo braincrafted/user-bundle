@@ -37,6 +37,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('enabled')->defaultValue(true)->end()
+                        ->scalarNode('invite_required')->defaultValue(false)->end()
                     ->end()
                 ->end()
             ->end();

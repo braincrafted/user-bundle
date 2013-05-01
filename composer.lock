@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "09372be016f178c5df4063247aea89c3",
+    "hash": "f7c1f6647a118c3d1286e077a9a6624b",
     "packages": [
         {
             "name": "doctrine/common",
@@ -995,12 +995,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "f0d465adfd157a254a856e9ef0302fc2239642d3"
+                "reference": "3bd6f1712642838b4c0524d3a47359940df72e80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/f0d465adfd157a254a856e9ef0302fc2239642d3",
-                "reference": "f0d465adfd157a254a856e9ef0302fc2239642d3",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/3bd6f1712642838b4c0524d3a47359940df72e80",
+                "reference": "3bd6f1712642838b4c0524d3a47359940df72e80",
                 "shasum": ""
             },
             "require": {
@@ -1040,7 +1040,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2013-04-17 21:08:10"
+            "time": "2013-04-29 23:44:28"
         },
         {
             "name": "nikic/php-parser",
