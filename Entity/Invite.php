@@ -54,6 +54,7 @@ class Invite
     {
         // generate identifier only once, here a 6 characters length code
         $this->code = substr(md5(uniqid(rand(), true)), 0, 6);
+        $this->createdAt = new \DateTime();
     }
 
     /**
