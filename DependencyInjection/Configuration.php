@@ -40,6 +40,8 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('invite_required')->defaultValue(false)->end()
                     ->end()
                 ->end()
+                ->scalarNode('db_driver')->defaultValue('orm')->end()
+                ->scalarNode('firewall_name')->defaultValue('main')->end()
             ->end();
         $this->addRequestInviteSection($rootNode);
 

@@ -8,6 +8,7 @@
 namespace Bc\Bundle\UserBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -23,7 +24,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  * @license    http://opensource.org/licenses/MIT The MIT License
  * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
  */
-class BcUserExtension extends Extension
+class BcUserExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritDoc}
@@ -46,6 +47,13 @@ class BcUserExtension extends Extension
             throw new \InvalidArgumentException('The option "registration.invite_required" must be set.');
         }
 
+        if (!isset($config['db_driver'])) {
+            throw new \InvalidArgumentException('The option "db_driver" must be set.');
+        }
+        if (!isset($config['firewall_name'])) {
+            throw new \InvalidArgumentException('The option "firewall_name" must be set.');
+        }
+
         $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
         $container->setParameter('bc_user.registration.invite_required', $config['registration']['invite_required']);
 
@@ -62,6 +70,61 @@ class BcUserExtension extends Extension
         }
 
         $container->setParameter('validator.mapping.loader.xml_files_loader.mapping_files', $files);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+        $bundles = $container->getParameter('kernel.bundles');
+
+        // Configure FOSUserBundle
+        if (isset($bundles['FOSUserBundle'])) {
+            $this->configureFosUserBundle($container);
+        }
+    }
+
+    /**
+     * Configures FosUserBundle.
+     *
+     * @param ContainerBuilder $container The service container
+     *
+     * @return void
+     *
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     */
+    private function configureFosUserBundle(ContainerBuilder $container)
+    {
+        $configs = $container->getExtensionConfig($this->getAlias());
+        $config = $this->processConfiguration(new Configuration(), $configs);
+
+        if ($config['registration']['invite_required']) {
+            $registrationValidationGroups = array('Default', 'Registration', 'RegistrationWithInvite');
+        } else {
+            $registrationValidationGroups = array('Default', 'Registration');
+        }
+
+        foreach ($container->getExtensions() as $name => $extension) {
+            switch ($name) {
+                case 'fos_user':
+                    $container->prependExtensionConfig(
+                        $name,
+                        array(
+                            'db_driver'     => $config['db_driver'],
+                            'firewall_name' => $config['firewall_name'],
+                            'user_class'    => 'Bc\Bundle\UserBundle\Entity\User',
+                            'registration'  => array(
+                                'form' => array(
+                                    'type' => 'bc_user_registration',
+                                    'validation_groups' => $registrationValidationGroups
+                                )
+                            )
+                        )
+                    );
+                    break;
+            }
+        }
     }
 
     private function loadInvite(array $config, ContainerBuilder $container, XmlFileLoader $loader)
