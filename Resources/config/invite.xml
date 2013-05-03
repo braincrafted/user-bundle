@@ -31,6 +31,11 @@
             <argument type="service" id="bc_user.invite_request_manager" />
         </service>
 
+        <service id="bc_user.invite_manager" class="Bc\Bundle\UserBundle\Entity\InviteManager">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>Bc\Bundle\UserBundle\Entity\Invite</argument>
+        </service>
+
     </services>
 
 </container>
