@@ -30,6 +30,9 @@ class InviteRequest
     /** @var \DateTime */
     private $updatedAt;
 
+    /** @var \DateTime */
+    private $deletedAt;
+
     /**
      * Constructor.
      *
@@ -122,5 +125,19 @@ class InviteRequest
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    public function delete()
+    {
+        $this->deletedAt = new \DateTime();
+
+        return $this;
+    }
+
+    public function undelete()
+    {
+        $this->deleteAt = null;
+
+        return $this;
     }
 }

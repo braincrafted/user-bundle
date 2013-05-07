@@ -16,6 +16,8 @@
 
         <field name="updatedAt" column="updated_at" type="datetime" />
 
+        <field name="deletedAt" column="deleted_at" type="datetime" nullable="true" />
+
     </entity>
 
 </doctrine-mapping>

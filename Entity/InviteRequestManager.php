@@ -61,7 +61,19 @@ class InviteRequestManager
      */
     public function findInviteRequests()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(array('deletedAt' => null));
+    }
+
+    /**
+     * Returns the invite request with the given ID.
+     *
+     * @param integer $id The ID
+     *
+     * @return InviteRequest The invite request
+     */
+    public function findInviteRequest($id)
+    {
+        return $this->repository->find($id);
     }
 
     /**

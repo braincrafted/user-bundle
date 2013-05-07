@@ -73,7 +73,7 @@ class InviteManager
      */
     public function findInvites()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(array(), array('updatedAt' => 'DESC'));
     }
 
     /**
