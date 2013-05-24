@@ -46,6 +46,8 @@
             <join-column name="invite_id" referenced-column-name="id" />
         </one-to-one>
 
+        <field name="timezone" column="timezone" type="string" length="255" nullable="true"></field>
+
     </entity>
 
 </doctrine-mapping>

@@ -23,6 +23,9 @@ class User extends AbstractUser
     /** @var Invite */
     private $invite;
 
+    /** @var string */
+    private $timezone;
+
     /**
      * Sets the ID.
      *
@@ -73,5 +76,28 @@ class User extends AbstractUser
     public function getInvite()
     {
         return $this->invite;
+    }
+
+    /**
+     * Sets the timezone.
+     *
+     * @param string $timezone The timezone
+     *
+     * @return User
+     */
+    public function setTimezone($timezone)
+    {
+        $this->timezone = $timezone;
+        return $this;
+    }
+
+    /**
+     * Returns the timezone.
+     *
+     * @return string The timezone
+     */
+    public function getTimezone()
+    {
+        return $this->timezone;
     }
 }
