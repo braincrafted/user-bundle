@@ -1,0 +1,22 @@
+<div class="page-header">
+    <h1>Your profile</h1>
+</div>
+
+{% include "BcUserBundle:Profile:toolbar.html.twig" with { 'active': 'show' } %}
+
+<hr>
+
+<dl class="dl-horizontal">
+    <dt>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}</dt>
+    <dd>{{ user.username }}</dd>
+    <dt>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}</dt>
+    <dd>{{ user.email }}</dd>
+    <dt>Last login</dt>
+    <dd>{{ user.lastLogin|date('l, jS \\of F Y \\a\\t H:i:s') }}</dd>
+    {% if user.invite %}
+        <dt>Invite</dt>
+        <dd>{{ user.invite.code }}</dd>
+    {% endif %}
+</dl>
+
+{% include "BcUserBundle:Profile:delete_button.html.twig" %}

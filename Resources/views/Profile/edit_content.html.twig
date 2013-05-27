@@ -1,11 +1,19 @@
+<div class="page-header">
+    <h1>Edit your profile</h1>
+</div>
+
+{% include "BcUserBundle:Profile:toolbar.html.twig" with { 'active': 'edit' } %}
+
+<hr>
+
 <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 
     {{ form_widget(form, {'form_type': 'horizontal'}) }}
 
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
-        </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
     </div>
 
 </form>
+
+{% include "BcUserBundle:Profile:delete_button.html.twig" %}

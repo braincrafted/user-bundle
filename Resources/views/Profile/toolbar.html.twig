@@ -1,0 +1,11 @@
+{% if active is not defined %}
+    {% set active = null %}
+{% endif %}
+
+<div class="btn-toolbar">
+    <div class="btn-group">
+        <a href="{{ path('fos_user_profile_show') }}" class="btn{% if 'show' == active %} active{% endif %}">Your profile</a>
+        <a href="{{ path('fos_user_profile_edit') }}" class="btn{% if 'edit' == active %} active{% endif %}">Edit your profile</a>
+        <a href="{{ path('fos_user_change_password') }}" class="btn{% if 'password' == active %} active{% endif %}">Change your password</a>
+    </div>
+</div>
