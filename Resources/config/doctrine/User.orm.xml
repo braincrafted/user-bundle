@@ -48,6 +48,10 @@
 
         <field name="timezone" column="timezone" type="string" length="255" nullable="true"></field>
 
+        <field name="createdAt" column="created_at" type="datetime" />
+
+        <field name="updatedAt" column="updated_at" type="datetime" />
+
     </entity>
 
 </doctrine-mapping>

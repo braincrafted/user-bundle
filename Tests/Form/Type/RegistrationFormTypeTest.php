@@ -44,6 +44,29 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testBuildForm()
     {
+        $this->type = new RegistrationFormType('stdClass', false);
+
+        $builder = m::mock('Symfony\Component\Form\FormBuilderInterface');
+        $builder->shouldReceive('add')->with('username', m::any(), m::any())->once()->andReturn($builder);
+        $builder->shouldReceive('add')->with('email', m::any(), m::any())->once()->andReturn($builder);
+        $builder->shouldReceive('add')->with('plainPassword', m::any(), m::any())->andReturn($builder);
+        $builder
+            ->shouldReceive('add')
+            ->with('invite', 'bc_invite')
+            ->never();
+
+        $this->type->buildForm($builder, array());
+    }
+
+    /**
+     * Tests the <code>buildForm()</code> method.
+     *
+     * @covers Bc\Bundle\UserBundle\Form\Type\RegistrationFormType::buildForm()
+     */
+    public function testBuildForm_InviteRequired()
+    {
+        $this->type = new RegistrationFormType('stdClass', true);
+
         $builder = m::mock('Symfony\Component\Form\FormBuilderInterface');
         $builder->shouldReceive('add')->with('username', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('email', m::any(), m::any())->once()->andReturn($builder);

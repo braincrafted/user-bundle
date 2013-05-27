@@ -26,6 +26,12 @@ class User extends AbstractUser
     /** @var string */
     private $timezone;
 
+    /** @var \DateTime */
+    private $createdAt;
+
+    /** @var \DateTime */
+    private $updatedAt;
+
     /**
      * Sets the ID.
      *
@@ -88,6 +94,7 @@ class User extends AbstractUser
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
+
         return $this;
     }
 
@@ -99,5 +106,29 @@ class User extends AbstractUser
     public function getTimezone()
     {
         return $this->timezone;
+    }
+
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

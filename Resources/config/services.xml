@@ -26,6 +26,14 @@
             <argument>Bc\Bundle\UserBundle\Entity\Invite</argument>
         </service>
 
+        <service id="bc_user.user_manager" class="Bc\Bundle\UserBundle\Entity\UserManager">
+            <argument type="service" id="security.encoder_factory" />
+            <argument type="service" id="fos_user.util.username_canonicalizer" />
+            <argument type="service" id="fos_user.util.email_canonicalizer" />
+            <argument type="service" id="fos_user.entity_manager" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+
     </services>
 
 </container>

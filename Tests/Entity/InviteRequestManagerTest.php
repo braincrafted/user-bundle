@@ -90,8 +90,8 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
         $entities = array(m::mock($this->class));
 
         $this->repository
-            ->shouldReceive('findAll')
-            ->withNoArgs()
+            ->shouldReceive('findBy')
+            ->with(array('deletedAt' => null))
             ->once()
             ->andReturn($entities);
 
