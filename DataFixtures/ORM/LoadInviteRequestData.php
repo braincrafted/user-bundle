@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @copyright  2013 Florian Eckerstorfer
  * @license    http://opensource.org/licenses/MIT The MIT License
  */
-class LoadUserData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadInviteRequestData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
      * @var ContainerInterface
@@ -31,19 +31,13 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
     private $container;
 
     /** @var array */
-    private $users = array(
-        array(
-            'username'  => 'admin',
-            'password'  => 'admin',
-            'email'     => 'admin@example.com',
-            'role'      => 'ROLE_ADMIN'
-        ),
-        array(
-            'username'  => 'user1',
-            'password'  => 'user1',
-            'email'     => 'user1@example.com',
-            'role'      => 'ROLE_USER'
-        )
+    private $inviteRequests = array(
+        array('email' => 'user1@example.com', 'deletedAt' => '-1 week'),
+        array('email' => 'user-a@example.com'),
+        array('email' => 'user-b@example.com'),
+        array('email' => 'user-c@example.com'),
+        array('email' => 'user-d@example.com'),
+        array('email' => 'user-e@example.com')
     );
 
     /**
@@ -59,18 +53,15 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('bc_user.user_manager');
+        $manager = $this->container->get('bc_user.invite_request_manager');
 
-        foreach ($this->users as $userData) {
-            $user = $manager->createUser();
-            $user->setUsername($userData['username']);
-            $user->setPlainPassword($userData['password']);
-            $user->setEmail($userData['email']);
-            $user->setRoles(array($userData['role']));
-            $user->setEnabled(true);
-            $manager->updateUser($user, false);
-
-            $this->addReference(sprintf('user-%s', $userData['username']), $user);
+        foreach ($this->inviteRequests as $inviteRequestData) {
+            $inviteRequest = $manager->createInviteRequest();
+            $inviteRequest->setEmail($inviteRequestData['email']);
+            if (isset($inviteRequestData['deletedAt'])) {
+                $inviteRequest->setDeletedAt(new \DateTime($inviteRequestData['deletedAt']));
+            }
+            $manager->updateInviteRequest($inviteRequest, false);
         }
 
         $this->container->get('doctrine.orm.entity_manager')->flush();

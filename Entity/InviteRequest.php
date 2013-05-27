@@ -127,6 +127,18 @@ class InviteRequest
         return $this->updatedAt;
     }
 
+    public function setDeletedAt(\DateTime $deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
     public function delete()
     {
         $this->deletedAt = new \DateTime();

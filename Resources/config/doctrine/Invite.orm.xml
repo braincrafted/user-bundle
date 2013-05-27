@@ -16,7 +16,7 @@
 
         <field name="sent" column="sent" type="boolean" />
 
-        <one-to-one field="user" target-entity="Bc\Bundle\UserBundle\Entity\User" mapped-by="invite" />
+        <one-to-one field="user" target-entity="Bc\Bundle\UserBundle\Entity\User" mapped-by="invite" cascade="persist" />
 
         <field name="createdAt" column="created_at" type="datetime" />
 

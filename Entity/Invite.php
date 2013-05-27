@@ -118,7 +118,10 @@ class Invite
      */
     public function setUser(UserInterface $user)
     {
+        $user->setInvite($this);
         $this->user = $user;
+
+        return $this;
     }
 
     /**

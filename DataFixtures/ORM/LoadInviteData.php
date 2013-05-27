@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @copyright  2013 Florian Eckerstorfer
  * @license    http://opensource.org/licenses/MIT The MIT License
  */
-class LoadUserData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadInviteData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     /**
      * @var ContainerInterface
@@ -31,19 +31,23 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
     private $container;
 
     /** @var array */
-    private $users = array(
+    private $invites = array(
         array(
-            'username'  => 'admin',
-            'password'  => 'admin',
             'email'     => 'admin@example.com',
-            'role'      => 'ROLE_ADMIN'
+            'sent'      => true,
+            'user'      => 'admin'
         ),
         array(
-            'username'  => 'user1',
-            'password'  => 'user1',
             'email'     => 'user1@example.com',
-            'role'      => 'ROLE_USER'
-        )
+            'sent'      => true,
+            'user'      => 'user1'
+        ),
+        array(
+            'email'     => 'user2@example.com',
+            'sent'      => true
+        ),
+        array('email' => 'user3@example.com'),
+        array()
     );
 
     /**
@@ -59,18 +63,20 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('bc_user.user_manager');
+        $manager = $this->container->get('bc_user.invite_manager');
 
-        foreach ($this->users as $userData) {
-            $user = $manager->createUser();
-            $user->setUsername($userData['username']);
-            $user->setPlainPassword($userData['password']);
-            $user->setEmail($userData['email']);
-            $user->setRoles(array($userData['role']));
-            $user->setEnabled(true);
-            $manager->updateUser($user, false);
-
-            $this->addReference(sprintf('user-%s', $userData['username']), $user);
+        foreach ($this->invites as $inviteData) {
+            $invite = $manager->createInvite();
+            if (isset($inviteData['email'])) {
+                $invite->setEmail($inviteData['email']);
+            }
+            if (isset($inviteData['user'])) {
+                $invite->setUser($this->getReference(sprintf('user-%s', $inviteData['user'])));
+            }
+            if (isset($inviteData['sent']) && $inviteData['sent']) {
+                $invite->send();
+            }
+            $manager->updateInvite($invite, false);
         }
 
         $this->container->get('doctrine.orm.entity_manager')->flush();
@@ -81,6 +87,6 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
      */
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }
