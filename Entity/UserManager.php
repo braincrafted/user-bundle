@@ -16,7 +16,7 @@ class UserManager extends BaseUserManager
     {
         $class = $this->getClass();
         $user = new $class();
-        $user->setCreatedAt(new \DateTime(null, new \DateTimeZone('UTC')));
+        $user->setCreatedAt(new \DateTime());
         $user->setTimezone('UTC');
 
         return $user;
@@ -32,7 +32,7 @@ class UserManager extends BaseUserManager
     {
         $this->updateCanonicalFields($user);
         $this->updatePassword($user);
-        $user->setUpdatedAt(new \DateTime(null, new \DateTimeZone('UTC')));
+        $user->setUpdatedAt(new \DateTime());
 
         $this->objectManager->persist($user);
         if ($andFlush) {
