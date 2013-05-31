@@ -1,7 +1,6 @@
 <?php
 /**
  * This file is part of BcUserBundle.
- *
  * (c) 2013 Florian Eckerstorfer
  */
 
