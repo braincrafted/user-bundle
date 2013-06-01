@@ -13,6 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
+use Bc\Bundle\UserBundle\Form\EventListener\SetNameFieldSubscriber;
+
 /**
  * RegistrationFormType.
  *
@@ -47,6 +49,10 @@ class RegistrationFormType extends BaseRegistrationFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+        $builder->add('name', 'bc_name', array(
+            'mapped'    => false
+        ));
+        $builder->addEventSubscriber(new SetNameFieldSubscriber());
 
         if ($this->inviteRequired) {
             $builder->add('invite', 'bc_invite');

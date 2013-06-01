@@ -20,6 +20,12 @@ use FOS\UserBundle\Model\User as AbstractUser;
  */
 class User extends AbstractUser
 {
+    /** @var string */
+    private $firstName;
+
+    /** @var string */
+    private $lastName;
+
     /** @var Invite */
     private $invite;
 
@@ -62,6 +68,52 @@ class User extends AbstractUser
     public function getExpiresAt()
     {
         return $this->expiresAt;
+    }
+
+    /**
+     * Sets the first name of the user.
+     *
+     * @param string $firstName The first name of the user
+     *
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+        return $this;
+    }
+
+    /**
+     * Returns the first name of the user.
+     *
+     * @return string The first name of the user
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Sets the last name of the user.
+     *
+     * @param string $lastName The last name of the user
+     *
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+        return $this;
+    }
+
+    /**
+     * Returns the last name of the user.
+     *
+     * @return string The last name of the user
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
     }
 
     /**
