@@ -7,6 +7,11 @@ use FOS\UserBundle\Model\UserInterface;
 
 class UserManager extends BaseUserManager
 {
+    public function findByEmail($email)
+    {
+        return $this->repository->findOneBy(array('email' => $email));
+    }
+
     /**
      * Returns an empty user instance
      *
