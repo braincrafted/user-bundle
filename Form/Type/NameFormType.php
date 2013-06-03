@@ -30,12 +30,18 @@ class NameFormType extends AbstractType
         $builder->add(
             'firstName',
             'text',
-            array('attr' => array('placeholder' => 'form.name.first_name'))
+            array(
+                'translation_domain'            => 'BcUserBundle',
+                'attr' => array('placeholder'   => 'form.name.first_name')
+            )
         );
         $builder->add(
             'lastName',
             'text',
-            array('attr' => array('placeholder' => 'form.name.last_name'))
+            array(
+                'translation_domain'            => 'BcUserBundle',
+                'attr' => array('placeholder'   => 'form.name.last_name')
+            )
         );
     }
 

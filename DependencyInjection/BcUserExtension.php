@@ -25,6 +25,9 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  */
 class BcUserExtension extends Extension implements PrependExtensionInterface
 {
+    /** @var string */
+    private $formTemplate = 'BcUserBundle:Form:form_div_layout.html.twig';
+
     /**
      * {@inheritDoc}
      */
@@ -97,6 +100,12 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
         if (isset($bundles['FOSUserBundle'])) {
             $this->configureFosUserBundle($container);
         }
+
+        // Configure Twig if TwigBundle is activated and the option
+        // "bc_bootstrap.auto_configure.twig" is set to TRUE (default value).
+        if (isset($bundles['TwigBundle'])) {
+            $this->configureTwigBundle($container);
+        }
     }
 
     /**
@@ -136,6 +145,28 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
                                 )
                             )
                         )
+                    );
+                    break;
+            }
+        }
+    }
+
+
+    /**
+     * Configures the TwigBundle.
+     *
+     * @param ContainerBuilder $container The service container
+     *
+     * @return void
+     */
+    private function configureTwigBundle(ContainerBuilder $container)
+    {
+        foreach ($container->getExtensions() as $name => $extension) {
+            switch ($name) {
+                case 'twig':
+                    $container->prependExtensionConfig(
+                        $name,
+                        array('form'  => array('resources' => array($this->formTemplate)))
                     );
                     break;
             }

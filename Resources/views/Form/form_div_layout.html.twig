@@ -1,0 +1,10 @@
+{% block bc_name_widget %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+        {{ form_errors(form.firstName) }}
+        {{ form_errors(form.lastName) }}
+        {{ form_widget(form.firstName) }}&nbsp;
+        {{ form_widget(form.lastName) }}
+    </div>
+{% endspaceless %}
+{% endblock bc_name_widget %}

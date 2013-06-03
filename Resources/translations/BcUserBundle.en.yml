@@ -14,3 +14,10 @@ security:
 
 request_invite:
     submit: Request an invite
+
+form:
+    registration:
+        name: Name
+    name:
+        first_name: First name
+        last_name: Last name
