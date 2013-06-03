@@ -18,7 +18,7 @@ use FOS\UserBundle\Model\User as AbstractUser;
  * @copyright  2013 Florian Eckerstorfer
  * @license    http://opensource.org/licenses/MIT The MIT License
  */
-class User extends AbstractUser
+class User extends AbstractUser implements \ArrayAccess
 {
     /** @var string */
     private $firstName;
@@ -182,5 +182,30 @@ class User extends AbstractUser
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    public function offsetSet($key, $value)
+    {
+        $this->$key = $value;
+    }
+
+    public function offsetGet($key)
+    {
+        if (isset($this->$key)) {
+            return $this->$key;
+        }
+        return null;
+    }
+
+    public function offsetExists($key)
+    {
+        return isset($this->$key);
+    }
+
+    public function offsetUnset($key)
+    {
+        if (isset($this->$key)) {
+            $this->$key = null;
+        }
     }
 }

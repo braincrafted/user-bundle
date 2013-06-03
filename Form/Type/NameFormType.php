@@ -27,9 +27,28 @@ class NameFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName', 'text');
-        $builder->add('lastName', 'text');
+        $builder->add(
+            'firstName',
+            'text',
+            array('attr' => array('placeholder' => 'form.name.first_name'))
+        );
+        $builder->add(
+            'lastName',
+            'text',
+            array('attr' => array('placeholder' => 'form.name.last_name'))
+        );
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'virtual' => true
+        ));
+    }
+
 
     /**
      * {@inheritDoc}
