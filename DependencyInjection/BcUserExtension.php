@@ -1,7 +1,6 @@
 <?php
 /**
  * This file is part of BcUserBundle.
- *
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -36,16 +35,19 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        foreach (array('services') as $basename) {
+        foreach (array('services', 'registration') as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
         }
 
         if (!isset($config['registration']['enabled'])) {
             throw new \InvalidArgumentException('The option "registration.enabled" must be set.');
         }
+        $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
+
         if (!isset($config['registration']['invite_required'])) {
             throw new \InvalidArgumentException('The option "registration.invite_required" must be set.');
         }
+        $container->setParameter('bc_user.registration.invite_required', $config['registration']['invite_required']);
 
         if (!isset($config['db_driver'])) {
             throw new \InvalidArgumentException('The option "db_driver" must be set.');
@@ -54,8 +56,20 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
             throw new \InvalidArgumentException('The option "firewall_name" must be set.');
         }
 
-        $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
-        $container->setParameter('bc_user.registration.invite_required', $config['registration']['invite_required']);
+        if (!isset($config['user_class'])) {
+            throw new \InvalidArgumentException('The option "bc_user.user_class" must be set.');
+        }
+        $container->setParameter('bc_user.user.class', $config['user_class']);
+
+        if (!isset($config['invite_class'])) {
+            throw new \InvalidArgumentException('The option "bc_user.invite_class" must be set.');
+        }
+        $container->setParameter('bc_user.invite.class', $config['invite_class']);
+
+        if (!isset($config['invite_request_class'])) {
+            throw new \InvalidArgumentException('The option "bc_user.invite_request_class" must be set.');
+        }
+        $container->setParameter('bc_user.invite_request.class', $config['invite_request_class']);
 
         if (!empty($config['request_invite'])) {
             $this->loadInvite($config['request_invite'], $container, $loader);
@@ -116,8 +130,9 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
                             'user_class'    => 'Bc\Bundle\UserBundle\Entity\User',
                             'registration'  => array(
                                 'form' => array(
-                                    'type' => 'bc_user_registration',
-                                    'validation_groups' => $registrationValidationGroups
+                                    'type'                  => 'bc_user_registration',
+                                    'validation_groups'     => $registrationValidationGroups,
+                                    'handler'               => 'bc_user.registration.form.handler'
                                 )
                             )
                         )

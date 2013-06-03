@@ -1,7 +1,6 @@
 <?php
 /**
  * This file is part of BcUserBundle.
- *
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -42,6 +41,9 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->scalarNode('db_driver')->defaultValue('orm')->end()
                 ->scalarNode('firewall_name')->defaultValue('main')->end()
+                ->scalarNode('user_class')->defaultValue('Bc\Bundle\UserBundle\Entity\User')->end()
+                ->scalarNode('invite_class')->defaultValue('Bc\Bundle\UserBundle\Entity\Invite')->end()
+                ->scalarNode('invite_request_class')->defaultValue('Bc\Bundle\UserBundle\Entity\InviteRequest')->end()
             ->end();
         $this->addRequestInviteSection($rootNode);
 

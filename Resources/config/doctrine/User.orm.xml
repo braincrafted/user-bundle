@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                     http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Bc\Bundle\UserBundle\Entity\User" table="user">
+    <entity name="Bc\Bundle\UserBundle\Entity\User" table="users">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
@@ -41,6 +41,10 @@
         <field name="credentialsExpired" column="credentials_expired" type="boolean" />
 
         <field name="credentialsExpireAt" column="credentials_expire_at" type="datetime" nullable="true" />
+
+        <field name="firstName" column="first_name" type="string" nullable="true" />
+
+        <field name="lastName" column="last_name" type="string" nullable="true" />
 
         <one-to-one field="invite" target-entity="Bc\Bundle\UserBundle\Entity\Invite" inversed-by="user">
             <join-column name="invite_id" referenced-column-name="id" />
