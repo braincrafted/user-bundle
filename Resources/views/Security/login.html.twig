@@ -39,8 +39,11 @@
                 <input type="checkbox" id="remember_me" name="_remember_me" value="on">
                 {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
             </label>
-            <button type="submit" id="_submit" name="_submit" class="btn btn-primary">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
         </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" id="_submit" name="_submit" class="btn btn-primary">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
     </div>
 
     <div class="control-group">

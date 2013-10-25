@@ -1,5 +1,10 @@
 {% extends "BcUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
+
+<div class="page-header">
+    <h1>{{ 'request_invite.headline'|trans({}, 'BcUserBundle') }}</h1>
+</div>
+
 {% include "BcUserBundle:Invite:requestInvite_content.html.twig" %}
 {% endblock fos_user_content %}

@@ -2,10 +2,8 @@
 
     {{ form_widget(form, {'form_type': 'horizontal'}) }}
 
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn btn-primary">{{ 'request_invite.submit'|trans({}, 'BcUserBundle') }}</button>
-        </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ 'request_invite.submit'|trans({}, 'BcUserBundle') }}</button>
     </div>
 
 </form>
