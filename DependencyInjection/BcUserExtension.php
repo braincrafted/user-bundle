@@ -39,13 +39,8 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        foreach (array('services', 'registration') as $basename) {
+        foreach (array('services', 'registration', 'admin') as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
-        }
-
-        $ymlLoader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        foreach (array('admin') as $basename) {
-            $ymlLoader->load(sprintf('%s.yml', $basename));
         }
 
         if (!isset($config['registration']['enabled'])) {

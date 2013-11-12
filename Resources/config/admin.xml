@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+
+        <parameter key="bc_user_admin.menu_builder.class">Bc\Bundle\UserBundle\Menu\Builder</parameter>
+
+    </parameters>
+
+    <services>
+
+        <service id="bc_user_admin.menu_builder" class="%bc_user_admin.menu_builder.class%">
+            <argument type="service" id="knp_menu.factory" />
+            <argument type="service" id="translator" />
+        </service>
+
+        <service id="bc_user_admin.menu.user_admin" class="Knp\Menu\MenuItem" factory-service="bc_user_admin.menu_builder" factory-method="createUserAdminMenu">
+            <tag name="knp_menu.menu" alias="user_admin" />
+        </service>
+
+    </services>
+
+</container>

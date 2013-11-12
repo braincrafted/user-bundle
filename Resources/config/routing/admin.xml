@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="bc_user_admin_list" pattern="/">
+        <default key="_controller">BcUserBundle:UserAdmin:list</default>
+    </route>
+
+    <route id="bc_user_admin_create" pattern="/create">
+        <default key="_controller">BcUserBundle:UserAdmin:create</default>
+    </route>
+
+    <route id="bc_user_admin_update" pattern="/update/{userId}">
+        <default key="_controller">BcUserBundle:UserAdmin:update</default>
+    </route>
+
+    <route id="bc_user_admin_delete" pattern="/delete/{userId}">
+        <default key="_controller">BcUserBundle:UserAdmin:delete</default>
+    </route>
+
+    <route id="bc_user_admin_invite_request_list" pattern="/invite-request">
+        <default key="_controller">BcUserBundle:InviteRequestAdmin:list</default>
+    </route>
+
+    <route id="bc_user_admin_invite_request_invite" pattern="/invite-request/invite/{inviteRequestId}">
+        <default key="_controller">BcUserBundle:InviteRequestAdmin:invite</default>
+    </route>
+
+    <route id="bc_user_admin_invite_list" pattern="/invite">
+        <default key="_controller">BcUserBundle:InviteAdmin:list</default>
+    </route>
+
+    <route id="bc_user_admin_invite_create" pattern="/invite/create">
+        <default key="_controller">BcUserBundle:InviteAdmin:create</default>
+    </route>
+
+    <route id="bc_user_admin_invite_batch_create" pattern="/invite/batch-create/{number}">
+        <default key="_controller">BcUserBundle:InviteAdmin:batchCreate</default>
+    </route>
+
+    <route id="bc_user_admin_invite_delete" pattern="/invite/delete/{code}">
+        <default key="_controller">BcUserBundle:InviteAdmin:delete</default>
+    </route>
+
+    <route id="bc_user_admin_invite_send" pattern="/invite/send/{code}">
+        <default key="_controller">BcUserBundle:InviteAdmin:send</default>
+    </route>
+
+</routes>
