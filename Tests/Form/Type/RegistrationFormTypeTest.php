@@ -50,6 +50,7 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
         $builder->shouldReceive('add')->with('username', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('email', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('plainPassword', m::any(), m::any())->andReturn($builder);
+        $builder->shouldReceive('add')->with('name', 'bc_name', m::any())->andReturn($builder);
         $builder
             ->shouldReceive('add')
             ->with('invite', 'bc_invite')
@@ -71,6 +72,7 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
         $builder->shouldReceive('add')->with('username', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('email', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('plainPassword', m::any(), m::any())->andReturn($builder);
+        $builder->shouldReceive('add')->with('name', 'bc_name', m::any())->andReturn($builder);
         $builder
             ->shouldReceive('add')
             ->with('invite', 'bc_invite')

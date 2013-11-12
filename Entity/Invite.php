@@ -7,8 +7,6 @@
 
 namespace Bc\Bundle\UserBundle\Entity;
 
-use FOS\UserBundle\Model\UserInterface;
-
 /**
  * Invite.
  *
@@ -116,7 +114,7 @@ class Invite
      *
      * @return void
      */
-    public function setUser(UserInterface $user)
+    public function setUser(User $user)
     {
         $user->setInvite($this);
         $this->user = $user;

@@ -75,7 +75,8 @@ class InviteTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetUser_getUser()
     {
-        $user = m::mock('FOS\UserBundle\Model\UserInterface');
+        $user = m::mock('Bc\Bundle\UserBundle\Entity\User');
+        $user->shouldReceive('setInvite')->with($this->invite);
         $this->invite->setUser($user);
         $this->assertEquals($user, $this->invite->getUser());
     }
