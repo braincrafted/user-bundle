@@ -1,0 +1,43 @@
+bc_user_admin_list:
+    pattern:  /
+    defaults: { _controller: BcUserBundle:UserAdmin:list }
+
+bc_user_admin_create:
+    pattern:  /create
+    defaults: { _controller: BcUserBundle:UserAdmin:create }
+
+bc_user_admin_update:
+    pattern:  /update/{userId}
+    defaults: { _controller: BcUserBundle:UserAdmin:update }
+
+bc_user_admin_delete:
+    pattern:  /delete/{userId}
+    defaults: { _controller: BcUserBundle:UserAdmin:delete }
+
+bc_user_admin_invite_request_list:
+    pattern:  /invite-request
+    defaults: { _controller: BcUserBundle:InviteRequestAdmin:list }
+
+bc_user_admin_invite_request_invite:
+    pattern:  /invite-request/invite/{inviteRequestId}
+    defaults: { _controller: BcUserBundle:InviteRequestAdmin:invite }
+
+bc_user_admin_invite_list:
+    pattern:  /invite
+    defaults: { _controller: BcUserBundle:InviteAdmin:list }
+
+bc_user_admin_invite_create:
+    pattern:  /invite/create
+    defaults: { _controller: BcUserBundle:InviteAdmin:create }
+
+bc_user_admin_invite_batch_create:
+    pattern:  /invite/batch-create/{number}
+    defaults: { _controller: BcUserBundle:InviteAdmin:batchCreate }
+
+bc_user_admin_invite_delete:
+    pattern:  /invite/delete/{code}
+    defaults: { _controller: BcUserBundle:InviteAdmin:delete }
+
+bc_user_admin_invite_send:
+    pattern:  /invite/send/{code}
+    defaults: { _controller: BcUserBundle:InviteAdmin:send }

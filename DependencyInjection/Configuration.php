@@ -44,6 +44,12 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('user_class')->defaultValue('Bc\Bundle\UserBundle\Entity\User')->end()
                 ->scalarNode('invite_class')->defaultValue('Bc\Bundle\UserBundle\Entity\Invite')->end()
                 ->scalarNode('invite_request_class')->defaultValue('Bc\Bundle\UserBundle\Entity\InviteRequest')->end()
+                ->arrayNode('assets')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('output_dir')->defaultValue('')->end()
+                    ->end()
+                ->end()
             ->end();
         $this->addRequestInviteSection($rootNode);
 

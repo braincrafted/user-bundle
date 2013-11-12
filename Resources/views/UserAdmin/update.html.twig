@@ -1,0 +1,36 @@
+{% extends 'BcUserBundle::admin_layout.html.twig' %}
+
+{% block bc_user_admin_content %}
+
+<div class="page-header">
+    <h1>{{ 'user.update_user'|trans({'%username%': user.username }, 'BcUserAdminBundle') }}</h1>
+</div>
+
+<div class="btn-toolbar">
+    <div class="btn-group"><a href="{{ path('bc_user_admin_list') }}" class="btn"><i class="icon-chevron-left"></i> {{ 'user.users'|trans({}, 'BcUserAdminBundle') }}</a></div>
+</div>
+
+<form action="{{ path('bc_user_admin_update', { 'userId': user.id }) }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
+
+    {{ form(form, {'style': 'horizontal'}) }}
+
+</form>
+
+<table class="table table-stripped">
+    {% if user.lastLogin %}
+    <tr>
+        <th>Last login</th>
+        <td>{{ user.lastLogin|date("Y-m-d H:i:s", user.timezone) }}</td>
+    </tr>
+    <tr>
+        <th>Created at</th>
+        <td>{{ user.createdAt|date("Y-m-d H:i:s", user.timezone) }}</td>
+    </tr>
+    <tr>
+        <th>Updated at</th>
+        <td>{{ user.updatedAt|date("Y-m-d H:i:s", user.timezone) }}</td>
+    </tr>
+    {% endif %}
+</table>
+
+{% endblock bc_user_admin_content %}

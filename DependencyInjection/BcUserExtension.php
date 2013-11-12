@@ -12,6 +12,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
  * BcUserExtension
@@ -40,6 +41,11 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
 
         foreach (array('services', 'registration') as $basename) {
             $loader->load(sprintf('%s.xml', $basename));
+        }
+
+        $ymlLoader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        foreach (array('admin') as $basename) {
+            $ymlLoader->load(sprintf('%s.yml', $basename));
         }
 
         if (!isset($config['registration']['enabled'])) {
@@ -106,6 +112,11 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
         if (isset($bundles['TwigBundle'])) {
             $this->configureTwigBundle($container);
         }
+
+        // Configure AsseticBundle
+        if (isset($bundles['AsseticBundle'])) {
+            $this->configureAsseticBundle($container);
+        }
     }
 
     /**
@@ -171,6 +182,56 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
                     break;
             }
         }
+    }
+
+    /**
+     * Configures AsseticBundle.
+     *
+     * @param ContainerBuilder $container The service container
+     *
+     * @return void
+     *
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     */
+    private function configureAsseticBundle(ContainerBuilder $container)
+    {
+        $configs = $container->getExtensionConfig($this->getAlias());
+        $config = $this->processConfiguration(new Configuration(), $configs);
+
+        foreach ($container->getExtensions() as $name => $extension) {
+            switch ($name) {
+                case 'assetic':
+                    $container->prependExtensionConfig(
+                        $name,
+                        array(
+                            'assets'    => $this->buildAsseticConfig($config)
+                        )
+                    );
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Builds the configuration for AsseticBundle.
+     *
+     * @param array $config The BcUserAdmin configuration
+     *
+     * @return array The configuration for AsseticBundle
+     */
+    private function buildAsseticConfig(array $config)
+    {
+        $output = array(
+            'bc_user_admin_css' => array(
+                'inputs'    => array(
+                    __DIR__.'/../Resources/sass/user-admin.scss'
+                ),
+                'filters'   => array('cssrewrite'),
+                'output'    => $config['assets']['output_dir'].'/css/user-admin.css'
+            )
+        );
+
+        return $output;
     }
 
     private function loadInvite(array $config, ContainerBuilder $container, XmlFileLoader $loader)

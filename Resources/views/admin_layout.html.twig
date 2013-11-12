@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Administration</title>
+
+<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user-admin.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle"
+                data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {{ knp_menu_render('user_admin', {'nav_type': 'stacked_pills'}) }}
+        </div>
+        <div class="col-md-9">
+            {% block bc_user_admin_content %}{% endblock bc_user_admin_content %}
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+
+</body>
+
+</html>

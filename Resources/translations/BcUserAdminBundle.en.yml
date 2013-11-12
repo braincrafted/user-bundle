@@ -1,0 +1,32 @@
+# User
+user:
+    create_user: Create user
+    users: Users
+    update: Update
+    update_user: Update user
+    update_user_x: Update user %username%
+    delete: Delete
+    username: Username
+    email: Email
+
+menu:
+    users: Users
+    invite: Invites
+    invite_requests: Invite requests
+
+form:
+    update_user:
+        username: Username
+        email: Email
+        password: Password
+        name: Name
+        timezone: Timezone
+        enabled: Enabled?
+
+
+invite_request:
+    invite_requests: Invite requests
+    table:
+        email: Email
+        date_created: Date created
+        invite: Invite

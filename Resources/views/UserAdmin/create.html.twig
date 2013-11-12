@@ -1,0 +1,19 @@
+{% extends 'BcUserBundle::admin_layout.html.twig' %}
+
+{% block bc_user_admin_content %}
+
+<div class="page-header">
+    <h1>{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</h1>
+</div>
+
+<div class="btn-toolbar">
+    <div class="btn-group"><a href="{{ path('bc_user_admin_list') }}" class="btn"><i class="icon-chevron-left"></i> {{ 'user.users'|trans({}, 'BcUserAdminBundle') }}</a></div>
+</div>
+
+<form action="{{ path('bc_user_admin_create') }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
+
+    {{ form(form, {'style': 'horizontal'}) }}
+
+</form>
+
+{% endblock bc_user_admin_content %}
