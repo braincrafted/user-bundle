@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstiorfer
  */
 
-namespace Bc\Bundle\UserBundle\DataFixtures\ORM;
+namespace Braincrafted\Bundle\UserBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * LoadUserData
  *
  * @category   DoctrineORMDataFixtures
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage DataFixtures
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -63,7 +63,7 @@ class LoadInviteData extends AbstractFixture implements FixtureInterface, Contai
      */
     public function load(ObjectManager $manager)
     {
-        $manager = $this->container->get('bc_user.invite_manager');
+        $manager = $this->container->get('braincrafted_user.invite_manager');
 
         foreach ($this->invites as $inviteData) {
             $invite = $manager->createInvite();

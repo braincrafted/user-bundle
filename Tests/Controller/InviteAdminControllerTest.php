@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of BcUserAdminBundle.
+ * This file is part of BraincraftedUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Controller;
+namespace Braincrafted\Bundle\UserBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 
-use Bc\Bundle\TestingBundle\Test\WebTestCase;
+use Braincrafted\Bundle\TestingBundle\Test\WebTestCase;
 
 /**
  * InviteControllerTest
  *
  * @category   FunctionalTest
- * @package    BcUserAdminBundle
+ * @package    BraincraftedUserAdminBundle
  * @subpackage Controller
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -36,7 +36,7 @@ class InviteAdminControllerTest extends WebTestCase
     /**
      * Tests `listAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteController
      */
     public function testListAction()
     {
@@ -46,7 +46,7 @@ class InviteAdminControllerTest extends WebTestCase
     /**
      * Tests `createAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteController
      */
     public function testCreateAction()
     {
@@ -56,7 +56,7 @@ class InviteAdminControllerTest extends WebTestCase
     /**
      * Tests `batchCreateAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteController
      */
     public function testBatchCreateAction()
     {
@@ -66,7 +66,7 @@ class InviteAdminControllerTest extends WebTestCase
     /**
      * Tests `sendAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteController
      */
     public function testSendAction()
     {
@@ -76,7 +76,7 @@ class InviteAdminControllerTest extends WebTestCase
     /**
      * Tests `deleteAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteController
      */
     public function testDeleteAction()
     {
@@ -84,7 +84,7 @@ class InviteAdminControllerTest extends WebTestCase
     }
 
     // /**
-    //  * @covers Bc\Bundle\UserAdminBundle\Controller\InviteController::listAction()
+    //  * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteController::listAction()
     //  */
     // public function testList()
     // {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bc\Bundle\UserBundle\Controller;
+namespace Braincrafted\Bundle\UserBundle\Controller;
 
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
@@ -31,9 +31,9 @@ class RegistrationController extends BaseController
 {
     public function registerAction()
     {
-        if (!$this->container->getParameter('bc_user.registration.enabled')) {
+        if (!$this->container->getParameter('braincrafted_user.registration.enabled')) {
             return $this->container->get('templating')->renderResponse(
-                'BcUserBundle:Registration:disabled.html.'.$this->getEngine()
+                'BraincraftedUserBundle:Registration:disabled.html.'.$this->getEngine()
             );
         }
 

@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of BcUserAdminBundle.
+ * This file is part of BraincraftedUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  * CreateUserType
  *
  * @category    FormType
- * @package     BcUserAdminBundle
+ * @package     BraincraftedUserAdminBundle
  * @subpackage  Form
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -32,7 +32,7 @@ class CreateUserType extends UpdateUserType
         $builder->add(
             'save',
             'submit',
-            array('label' => 'user.create_user', 'translation_domain' => 'BcUserAdminBundle')
+            array('label' => 'user.create_user', 'translation_domain' => 'BraincraftedUserAdminBundle')
         );
     }
 

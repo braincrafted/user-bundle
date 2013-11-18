@@ -1,4 +1,4 @@
-bc_user:
+braincrafted_user:
     request_invite:
         email:
             already_used: This email address already requested an invite.

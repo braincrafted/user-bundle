@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\DependencyInjection;
+namespace Braincrafted\Bundle\UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -13,7 +13,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 /**
  * Configuration
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -28,7 +28,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('bc_user');
+        $rootNode = $treeBuilder->root('braincrafted_user');
 
         $rootNode
             ->children()
@@ -41,9 +41,9 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->scalarNode('db_driver')->defaultValue('orm')->end()
                 ->scalarNode('firewall_name')->defaultValue('main')->end()
-                ->scalarNode('user_class')->defaultValue('Bc\Bundle\UserBundle\Entity\User')->end()
-                ->scalarNode('invite_class')->defaultValue('Bc\Bundle\UserBundle\Entity\Invite')->end()
-                ->scalarNode('invite_request_class')->defaultValue('Bc\Bundle\UserBundle\Entity\InviteRequest')->end()
+                ->scalarNode('user_class')->defaultValue('Braincrafted\Bundle\UserBundle\Entity\User')->end()
+                ->scalarNode('invite_class')->defaultValue('Braincrafted\Bundle\UserBundle\Entity\Invite')->end()
+                ->scalarNode('invite_request_class')->defaultValue('Braincrafted\Bundle\UserBundle\Entity\InviteRequest')->end()
                 ->arrayNode('assets')
                     ->addDefaultsIfNotSet()
                     ->children()
@@ -67,9 +67,9 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('form')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('type')->defaultValue('bc_user_request_invite')->end()
-                                ->scalarNode('handler')->defaultValue('bc_user.request_invite.form.handler.default')->end()
-                                ->scalarNode('name')->defaultValue('bc_user_request_invite_form')->end()
+                                ->scalarNode('type')->defaultValue('braincrafted_user_request_invite')->end()
+                                ->scalarNode('handler')->defaultValue('braincrafted_user.request_invite.form.handler.default')->end()
+                                ->scalarNode('name')->defaultValue('braincrafted_user_request_invite_form')->end()
                                 ->arrayNode('validation_groups')
                                     ->prototype('scalar')->end()
                                     ->defaultValue(array('RequestInvite'))

@@ -5,43 +5,43 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="bc_user.request_invite.form.class">Symfony\Component\Form\Form</parameter>
-        <parameter key="bc_user.request_invite.form.type.class">Bc\Bundle\UserBundle\Form\Type\RequestInviteFormType</parameter>
-        <parameter key="bc_user.invite_request_manager.class">Bc\Bundle\UserBundle\Entity\InviteRequestManager</parameter>
-        <parameter key="bc_user.request_invite.form.handler.default.class">Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler</parameter>
-        <parameter key="bc_user.invite_manager.class">Bc\Bundle\UserBundle\Entity\InviteManager</parameter>
+        <parameter key="braincrafted_user.request_invite.form.class">Symfony\Component\Form\Form</parameter>
+        <parameter key="braincrafted_user.request_invite.form.type.class">Braincrafted\Bundle\UserBundle\Form\Type\RequestInviteFormType</parameter>
+        <parameter key="braincrafted_user.invite_request_manager.class">Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager</parameter>
+        <parameter key="braincrafted_user.request_invite.form.handler.default.class">Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler</parameter>
+        <parameter key="braincrafted_user.invite_manager.class">Braincrafted\Bundle\UserBundle\Entity\InviteManager</parameter>
     </parameters>
 
     <services>
 
-        <service id="bc_user.request_invite.form" factory-method="createNamed" factory-service="form.factory" class="%bc_user.request_invite.form.class%">
-            <argument>bc_request_invite</argument>
-            <argument>bc_request_invite</argument>
+        <service id="braincrafted_user.request_invite.form" factory-method="createNamed" factory-service="form.factory" class="%braincrafted_user.request_invite.form.class%">
+            <argument>braincrafted_request_invite</argument>
+            <argument>braincrafted_request_invite</argument>
             <argument>null</argument>
             <argument type="collection">
-                <argument key="validation_groups">%bc_user.request_invite.form.validation_groups%</argument>
+                <argument key="validation_groups">%braincrafted_user.request_invite.form.validation_groups%</argument>
             </argument>
         </service>
 
-        <service id="bc_user.request_invite.form.type" class="%bc_user.request_invite.form.type.class%">
-            <argument>%bc_user.invite_request.class%</argument>
-            <tag name="form.type" alias="bc_request_invite" />
+        <service id="braincrafted_user.request_invite.form.type" class="%braincrafted_user.request_invite.form.type.class%">
+            <argument>%braincrafted_user.invite_request.class%</argument>
+            <tag name="form.type" alias="braincrafted_request_invite" />
         </service>
 
-        <service id="bc_user.invite_request_manager" class="%bc_user.invite_request_manager.class%">
+        <service id="braincrafted_user.invite_request_manager" class="%braincrafted_user.invite_request_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
-            <argument>%bc_user.invite_request.class%</argument>
+            <argument>%braincrafted_user.invite_request.class%</argument>
         </service>
 
-        <service id="bc_user.request_invite.form.handler.default" class="%bc_user.request_invite.form.handler.default.class%" scope="request" public="false">
-            <argument type="service" id="bc_user.request_invite.form" />
+        <service id="braincrafted_user.request_invite.form.handler.default" class="%braincrafted_user.request_invite.form.handler.default.class%" scope="request" public="false">
+            <argument type="service" id="braincrafted_user.request_invite.form" />
             <argument type="service" id="request" />
-            <argument type="service" id="bc_user.invite_request_manager" />
+            <argument type="service" id="braincrafted_user.invite_request_manager" />
         </service>
 
-        <service id="bc_user.invite_manager" class="%bc_user.invite_manager.class%">
+        <service id="braincrafted_user.invite_manager" class="%braincrafted_user.invite_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
-            <argument>%bc_user.invite.class%</argument>
+            <argument>%braincrafted_user.invite.class%</argument>
         </service>
 
     </services>

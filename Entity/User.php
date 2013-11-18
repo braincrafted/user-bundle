@@ -1,18 +1,18 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Entity;
+namespace Braincrafted\Bundle\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as AbstractUser;
 
 /**
  * User
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Entity
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

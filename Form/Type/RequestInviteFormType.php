@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * InviteQueueUpFormType.
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Form.Type
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -59,6 +59,6 @@ class RequestInviteFormType extends AbstractType
      */
     public function getName()
     {
-        return 'bc_request_invite';
+        return 'braincrafted_request_invite';
     }
 }

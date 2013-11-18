@@ -1,6 +1,6 @@
 <?php
 
-namespace Bc\Bundle\UserBundle\Controller;
+namespace Braincrafted\Bundle\UserBundle\Controller;
 
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -20,11 +20,11 @@ class ProfileController extends BaseProfileController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        $this->container->get('bc_user.user_manager')->deleteUser($user);
+        $this->container->get('braincrafted_user.user_manager')->deleteUser($user);
 
         return new RedirectResponse(
             $this->container->get('router')->generate(
-                'bc_user_delete_success',
+                'braincrafted_user_delete_success',
                 array('username' => $user->getUsername())
             )
         );
@@ -33,7 +33,7 @@ class ProfileController extends BaseProfileController
     public function deleteSuccessAction($username)
     {
         return $this->container->get('templating')->renderResponse(
-            'BcUserBundle:Profile:deleteSuccess.html.'.$this->container->getParameter('fos_user.template.engine'),
+            'BraincraftedUserBundle:Profile:deleteSuccess.html.'.$this->container->getParameter('fos_user.template.engine'),
             array('username' => $username)
         );
     }

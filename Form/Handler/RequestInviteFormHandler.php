@@ -1,22 +1,22 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\Handler;
+namespace Braincrafted\Bundle\UserBundle\Form\Handler;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-use Bc\Bundle\UserBundle\Entity\InviteRequestManager;
-use Bc\Bundle\UserBundle\Entity\InviteRequest;
+use Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager;
+use Braincrafted\Bundle\UserBundle\Entity\InviteRequest;
 
 /**
  * RequestInviteFormHandler
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage FormHandler
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer

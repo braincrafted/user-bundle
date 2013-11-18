@@ -20,10 +20,11 @@
         "phpunit/phpunit":             "3.7.*",
         "mockery/mockery":             "~0.8",
         "symfony/form":                "~2.3",
-        "braincrafted/testing-bundle": "~0.2"
+        "braincrafted/testing-bundle": "~0.3"
     },
     "autoload": {
-        "psr-0": { "Bc\\Bundle\\UserBundle": "" }
+        "psr-0": { "Braincrafted\\Bundle\\UserBundle": "" }
     },
-    "target-dir": "Bc/Bundle/UserBundle"
+    "target-dir": "Braincrafted/Bundle/UserBundle",
+    "minimum-stability": "dev"
 }

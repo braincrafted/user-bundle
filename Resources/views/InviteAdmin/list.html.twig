@@ -1,11 +1,11 @@
-{% extends 'BcUserBundle::admin_layout.html.twig' %}
+{% extends 'BraincraftedUserBundle::admin_layout.html.twig' %}
 
-{% block bc_user_admin_content %}
+{% block braincrafted_user_admin_content %}
 <div class="page-header">
     <h1>Invites</h1>
 </div>
 
-{% include 'BcBootstrapBundle::flash.html.twig' %}
+{% include 'BraincraftedBootstrapBundle::flash.html.twig' %}
 
 <div class="invite-percentage">
     <div class="pull-left">
@@ -23,12 +23,12 @@
 </div>
 
 <div class="btn-toolbar">
-    <a href="{{ path('bc_user_admin_invite_create') }}" class="btn btn-small btn-primary">Create invite</a>
+    <a href="{{ path('braincrafted_user_admin_invite_create') }}" class="btn btn-small btn-primary">Create invite</a>
     <div class="btn-group">
-        <a href="{{ path('bc_user_admin_invite_batch_create', { 'number': 5 }) }}" class="btn btn-small">5</a>
-        <a href="{{ path('bc_user_admin_invite_batch_create', { 'number': 10 }) }}" class="btn btn-small">10</a>
-        <a href="{{ path('bc_user_admin_invite_batch_create', { 'number': 50 }) }}" class="btn btn-small">50</a>
-        <a href="{{ path('bc_user_admin_invite_batch_create', { 'number': 100 }) }}" class="btn btn-small">100</a>
+        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 5 }) }}" class="btn btn-small">5</a>
+        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 10 }) }}" class="btn btn-small">10</a>
+        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 50 }) }}" class="btn btn-small">50</a>
+        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 100 }) }}" class="btn btn-small">100</a>
     </div>
 </div>
 
@@ -51,13 +51,13 @@
             <td>{{ invite.user ? invite.user : '' }}</td>
             <td>
                 {% if invite.email and not invite.isSent and not invite.user %}
-                    <a href="{{ path('bc_user_admin_invite_send', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-share-alt"></i> Send</a>
+                    <a href="{{ path('braincrafted_user_admin_invite_send', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-share-alt"></i> Send</a>
                 {% endif %}
-                <a href="{{ path('bc_user_admin_invite_delete', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-remove"></i> Delete</a>
+                <a href="{{ path('braincrafted_user_admin_invite_delete', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-remove"></i> Delete</a>
             </td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
 
-{% endblock bc_user_admin_content %}
+{% endblock braincrafted_user_admin_content %}

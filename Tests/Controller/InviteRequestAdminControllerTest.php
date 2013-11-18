@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of BcUserAdminBundle.
+ * This file is part of BraincraftedUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Controller;
+namespace Braincrafted\Bundle\UserBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 
-use Bc\Bundle\TestingBundle\Test\WebTestCase;
+use Braincrafted\Bundle\TestingBundle\Test\WebTestCase;
 
 /**
  * InviteRequestAdminControllerTest
  *
  * @category   FunctionalTest
- * @package    BcUserAdminBundle
+ * @package    BraincraftedUserAdminBundle
  * @subpackage Controller
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -36,7 +36,7 @@ class InviteRequestAdminControllerTest extends WebTestCase
     /**
      * Tests `listAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteRequestAdminController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteRequestAdminController
      */
     public function testListAction()
     {
@@ -46,7 +46,7 @@ class InviteRequestAdminControllerTest extends WebTestCase
     /**
      * Tests `inviteAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\InviteRequestAdminController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\InviteRequestAdminController
      */
     public function testInviteAction()
     {

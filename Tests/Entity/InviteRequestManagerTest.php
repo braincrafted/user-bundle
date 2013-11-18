@@ -1,22 +1,22 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Entity;
+namespace Braincrafted\Bundle\UserBundle\Tests\Entity;
 
 use \Mockery as m;
 
-use Bc\Bundle\UserBundle\Entity\InviteRequestManager;
-use Bc\Bundle\UserBundle\Entity\InviteRequest;
+use Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager;
+use Braincrafted\Bundle\UserBundle\Entity\InviteRequest;
 
 /**
  * InviteRequestManagerTest
  *
  * @category    Tests
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  Entity
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -35,7 +35,7 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
     private $repository;
 
     /** @var string */
-    private $class = '\Bc\Bundle\UserBundle\Tests\Entity\MockInviteRequest';
+    private $class = '\Braincrafted\Bundle\UserBundle\Tests\Entity\MockInviteRequest';
 
     public function setUp()
     {
@@ -71,8 +71,8 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>createInviteRequest()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::createInviteRequest()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::createInviteRequest()
      */
     public function testCreateInviteRequest()
     {
@@ -82,8 +82,8 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>findInviteRequests()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::findInviteRequests()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::findInviteRequests()
      */
     public function testFindInviteRequests()
     {
@@ -101,8 +101,8 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>updateInviteRequest()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::updateInviteRequest()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::updateInviteRequest()
      */
     public function testUpdateInviteRequest()
     {
@@ -127,8 +127,8 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>updateInviteRequest()</code> method with <code>$flush = false</code>.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::updateInviteRequest()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::updateInviteRequest()
      */
     public function testUpdateInviteRequest_NoFlush()
     {
@@ -153,8 +153,8 @@ class InviteRequestManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>flush()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequestManager::flush()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager::flush()
      */
     public function testFlush()
     {

@@ -1,21 +1,21 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Form\DataTransformer;
+namespace Braincrafted\Bundle\UserBundle\Tests\Form\DataTransformer;
 
 use \Mockery as m;
 
-use Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
+use Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
 
 /**
  * InviteToCodeTransformerTest
  *
  * @category    Tests
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  DataTransformer
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -39,11 +39,11 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>transform()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::transform()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::transform()
      */
     public function testTransform()
     {
-        $invite = m::mock('Bc\Bundle\UserBundle\Entity\Invite');
+        $invite = m::mock('Braincrafted\Bundle\UserBundle\Entity\Invite');
         $invite
             ->shouldReceive('getCode')
             ->withNoArgs()
@@ -56,7 +56,7 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>transform()</code> method with <code>$value = NULL</code>.
      *
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::transform()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::transform()
      */
     public function testTransform_null()
     {
@@ -66,7 +66,7 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>transform()</code> method with an invalid value.
      *
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::transform()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::transform()
      * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
      */
     public function testTransform_invalid()
@@ -77,12 +77,12 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>reverseTransform()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::__construct()
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::reverseTransform()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::reverseTransform()
      */
     public function testReverseTransform()
     {
-        $invite = m::mock('Bc\Bundle\UserBundle\Entity\Invite');
+        $invite = m::mock('Braincrafted\Bundle\UserBundle\Entity\Invite');
 
         $repository = m::mock('Doctrine\Common\Persistence\ObjectRepository');
         $repository
@@ -93,7 +93,7 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
 
         $this->om
             ->shouldReceive('getRepository')
-            ->with('Bc\Bundle\UserBundle\Entity\Invite')
+            ->with('Braincrafted\Bundle\UserBundle\Entity\Invite')
             ->once()
             ->andReturn($repository);
 
@@ -103,7 +103,7 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>reverseTransform()</code> method with <code>$value = NULL</code>.
      *
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::reverseTransform()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::reverseTransform()
      */
     public function testReverseTransform_null()
     {
@@ -114,7 +114,7 @@ class InviteToCodeTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>reverseTransform()</code> method with an invalid value.
      *
-     * @covers Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::reverseTransform()
+     * @covers Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer::reverseTransform()
      * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
      */
     public function testReverseTransform_invalid()

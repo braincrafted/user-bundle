@@ -1,21 +1,21 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Tests\Form\Type;
 
 use \Mockery as m;
 
-use Bc\Bundle\UserBundle\Form\Type\RegistrationFormType;
+use Braincrafted\Bundle\UserBundle\Form\Type\RegistrationFormType;
 
 /**
  * RegistrationFormTypeTest
  *
  * @category    Tests
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  FormType
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -40,7 +40,7 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>buildForm()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Type\RegistrationFormType::buildForm()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RegistrationFormType::buildForm()
      */
     public function testBuildForm()
     {
@@ -50,10 +50,10 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
         $builder->shouldReceive('add')->with('username', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('email', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('plainPassword', m::any(), m::any())->andReturn($builder);
-        $builder->shouldReceive('add')->with('name', 'bc_name', m::any())->andReturn($builder);
+        $builder->shouldReceive('add')->with('name', 'braincrafted_name', m::any())->andReturn($builder);
         $builder
             ->shouldReceive('add')
-            ->with('invite', 'bc_invite')
+            ->with('invite', 'braincrafted_invite')
             ->never();
 
         $this->type->buildForm($builder, array());
@@ -62,7 +62,7 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>buildForm()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Type\RegistrationFormType::buildForm()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RegistrationFormType::buildForm()
      */
     public function testBuildForm_InviteRequired()
     {
@@ -72,10 +72,10 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
         $builder->shouldReceive('add')->with('username', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('email', m::any(), m::any())->once()->andReturn($builder);
         $builder->shouldReceive('add')->with('plainPassword', m::any(), m::any())->andReturn($builder);
-        $builder->shouldReceive('add')->with('name', 'bc_name', m::any())->andReturn($builder);
+        $builder->shouldReceive('add')->with('name', 'braincrafted_name', m::any())->andReturn($builder);
         $builder
             ->shouldReceive('add')
-            ->with('invite', 'bc_invite')
+            ->with('invite', 'braincrafted_invite')
             ->once();
 
         $this->type->buildForm($builder, array());
@@ -84,10 +84,10 @@ class RegistrationFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>getName()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Type\RegistrationFormType::getName()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RegistrationFormType::getName()
      */
     public function testGetName()
     {
-        $this->assertEquals('bc_user_registration', $this->type->getName());
+        $this->assertEquals('braincrafted_user_registration', $this->type->getName());
     }
 }

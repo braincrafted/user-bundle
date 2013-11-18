@@ -1,21 +1,21 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Tests\Form\Type;
 
 use \Mockery as m;
 
-use Bc\Bundle\UserBundle\Form\Type\RequestInviteFormType;
+use Braincrafted\Bundle\UserBundle\Form\Type\RequestInviteFormType;
 
 /**
  * RequestInviteFormTypeTest
  *
  * @category    Tests
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  FormType
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -40,7 +40,7 @@ class RequestInviteFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>buildForm()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Type\RequestInviteFormType::buildForm()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RequestInviteFormType::buildForm()
      */
     public function testBuildForm()
     {
@@ -56,8 +56,8 @@ class RequestInviteFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setDefaultOptions()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Type\RequestInviteFormType::__construct()
-     * @covers Bc\Bundle\UserBundle\Form\Type\RequestInviteFormType::setDefaultOptions()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RequestInviteFormType::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RequestInviteFormType::setDefaultOptions()
      */
     public function testSetDefaultOptions()
     {
@@ -73,10 +73,10 @@ class RequestInviteFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>getName()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Type\RequestInviteFormType::getName()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Type\RequestInviteFormType::getName()
      */
     public function testGetName()
     {
-        $this->assertEquals('bc_request_invite', $this->type->getName());
+        $this->assertEquals('braincrafted_request_invite', $this->type->getName());
     }
 }

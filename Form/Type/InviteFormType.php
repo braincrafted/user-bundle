@@ -1,22 +1,22 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
-use Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
+use Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
 
 /**
  * InviteFormType
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Form.Type
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -50,7 +50,7 @@ class InviteFormType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'class'         => 'Bc\Bundle\UserBundle\Entity\Invite',
+            'class'         => 'Braincrafted\Bundle\UserBundle\Entity\Invite',
             'required'      => true
         ));
     }
@@ -68,6 +68,6 @@ class InviteFormType extends AbstractType
      */
     public function getName()
     {
-        return 'bc_invite';
+        return 'braincrafted_invite';
     }
 }

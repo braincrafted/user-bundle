@@ -1,13 +1,13 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\DataTransformer;
+namespace Braincrafted\Bundle\UserBundle\Form\DataTransformer;
 
-use Bc\Bundle\UserBundle\Entity\Invite;
+use Braincrafted\Bundle\UserBundle\Entity\Invite;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
@@ -15,7 +15,7 @@ use Symfony\Component\Form\Exception\UnexpectedTypeException;
 /**
  * Transforms an Invite to an invitation code.
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Form.DataTransformer
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -51,7 +51,7 @@ class InviteToCodeTransformer implements DataTransformerInterface
         }
 
         if (!$value instanceof Invite) {
-            throw new UnexpectedTypeException($value, 'Bc\Bundle\UserBundle\Entity\Invite');
+            throw new UnexpectedTypeException($value, 'Braincrafted\Bundle\UserBundle\Entity\Invite');
         }
 
         return $value->getCode();
@@ -77,7 +77,7 @@ class InviteToCodeTransformer implements DataTransformerInterface
         }
 
         return $this->objectManager
-            ->getRepository('Bc\Bundle\UserBundle\Entity\Invite')
+            ->getRepository('Braincrafted\Bundle\UserBundle\Entity\Invite')
             ->findOneBy(array(
                 'code' => $value
             ));

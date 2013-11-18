@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                     http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Bc\Bundle\UserBundle\Entity\InviteRequest" table="invite_requests">
+    <entity name="Braincrafted\Bundle\UserBundle\Entity\InviteRequest" table="invite_requests">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />

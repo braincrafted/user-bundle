@@ -4,12 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="bc_user_request_invite" pattern="/request">
-        <default key="_controller">BcUserBundle:Invite:requestInvite</default>
+    <route id="braincrafted_user_request_invite" pattern="/request">
+        <default key="_controller">BraincraftedUserBundle:Invite:requestInvite</default>
     </route>
 
-    <route id="bc_user_request_invite_confirmed" pattern="/request/confirmed">
-        <default key="_controller">BcUserBundle:Invite:requestInviteConfirmed</default>
+    <route id="braincrafted_user_request_invite_confirmed" pattern="/request/confirmed">
+        <default key="_controller">BraincraftedUserBundle:Invite:requestInviteConfirmed</default>
     </route>
 
 </routes>

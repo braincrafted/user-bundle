@@ -1,6 +1,6 @@
 <?php
 
-namespace Bc\Bundle\UserBundle\Entity;
+namespace Braincrafted\Bundle\UserBundle\Entity;
 
 use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
 use FOS\UserBundle\Model\UserInterface;

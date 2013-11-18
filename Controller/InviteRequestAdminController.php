@@ -1,23 +1,23 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Controller;
+namespace Braincrafted\Bundle\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use Bc\Bundle\UserAdminBundle\Form\Type\CreateUserType;
-use Bc\Bundle\UserAdminBundle\Form\Type\UpdateUserType;
-use Bc\Bundle\UserBundle\Entity\User;
+use Braincrafted\Bundle\UserAdminBundle\Form\Type\CreateUserType;
+use Braincrafted\Bundle\UserAdminBundle\Form\Type\UpdateUserType;
+use Braincrafted\Bundle\UserBundle\Entity\User;
 
 /**
  * UserAdminController
  *
  * @category    Controller
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  Controller
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -34,7 +34,7 @@ class InviteRequestAdminController extends Controller
     {
         $inviteRequestManager = $this->getInviteRequestManager();
 
-        return $this->render('BcUserBundle:InviteRequestAdmin:list.html.twig', array(
+        return $this->render('BraincraftedUserBundle:InviteRequestAdmin:list.html.twig', array(
             'inviteRequests' => $inviteRequestManager->findInviteRequests()
         ));
     }
@@ -60,7 +60,7 @@ class InviteRequestAdminController extends Controller
         $inviteRequest->delete();
         $inviteRequestManager->updateInviteRequest($inviteRequest);
 
-        return $this->redirect($this->generateUrl('bc_user_admin_invite_request_list'));
+        return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_request_list'));
     }
 
     /**
@@ -68,7 +68,7 @@ class InviteRequestAdminController extends Controller
      */
     private function getInviteRequestManager()
     {
-        return $this->get('bc_user.invite_request_manager');
+        return $this->get('braincrafted_user.invite_request_manager');
     }
 
     /**
@@ -76,6 +76,6 @@ class InviteRequestAdminController extends Controller
      */
     private function getInviteManager()
     {
-        return $this->get('bc_user.invite_manager');
+        return $this->get('braincrafted_user.invite_manager');
     }
 }

@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of BcUserAdminBundle.
+ * This file is part of BraincraftedUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Controller;
+namespace Braincrafted\Bundle\UserBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 
-use Bc\Bundle\TestingBundle\Test\WebTestCase;
+use Braincrafted\Bundle\TestingBundle\Test\WebTestCase;
 
 /**
  * UserAdminControllerTest
  *
  * @category   FunctionalTest
- * @package    BcUserAdminBundle
+ * @package    BraincraftedUserAdminBundle
  * @subpackage Controller
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -36,7 +36,7 @@ class UserAdminControllerTest extends WebTestCase
     /**
      * Tests `listAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\UserAdminController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\UserAdminController
      */
     public function testListAction()
     {
@@ -46,7 +46,7 @@ class UserAdminControllerTest extends WebTestCase
     /**
      * Tests `createAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\UserAdminController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\UserAdminController
      */
     public function testCreateAction()
     {
@@ -56,7 +56,7 @@ class UserAdminControllerTest extends WebTestCase
     /**
      * Tests `updateAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\UserAdminController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\UserAdminController
      */
     public function testUpdateAction()
     {
@@ -66,7 +66,7 @@ class UserAdminControllerTest extends WebTestCase
     /**
      * Tests `deleteAction()`.
      *
-     * @covers Bc\Bundle\UserAdminBundle\Controller\UserAdminController
+     * @covers Braincrafted\Bundle\UserAdminBundle\Controller\UserAdminController
      */
     public function testDeleteAction()
     {

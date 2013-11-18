@@ -1,19 +1,19 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Entity;
+namespace Braincrafted\Bundle\UserBundle\Tests\Entity;
 
-use Bc\Bundle\UserBundle\Entity\InviteRequest;
+use Braincrafted\Bundle\UserBundle\Entity\InviteRequest;
 
 /**
  * InviteRequestTest
  *
  * @category    Tests
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  Entity
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -33,7 +33,7 @@ class InviteRequestTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>__construct()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::__construct()
      */
     public function testConstructor()
     {
@@ -45,8 +45,8 @@ class InviteRequestTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setId()</code> and <code>getId()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::setId()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::getId()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::setId()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::getId()
      */
     public function testSetId_getId()
     {
@@ -57,8 +57,8 @@ class InviteRequestTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setEmail()</code> and <code>getEmail()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::setEmail()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::getEmail()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::setEmail()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::getEmail()
      */
     public function testSetEmail_GetEmail()
     {
@@ -69,8 +69,8 @@ class InviteRequestTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setCreatedAt()</code> and <code>getCreatedAt()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::setCreatedAt()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::getCreatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::setCreatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::getCreatedAt()
      */
     public function testSetCreatedAt_GetCreatedAt()
     {
@@ -82,8 +82,8 @@ class InviteRequestTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setUpdatedAt()</code> and <code>getUpdatedAt()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::setUpdatedAt()
-     * @covers Bc\Bundle\UserBundle\Entity\InviteRequest::getUpdatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::setUpdatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\InviteRequest::getUpdatedAt()
      */
     public function testSetUpdatedAt_GetUpdatedAt()
     {

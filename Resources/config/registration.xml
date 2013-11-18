@@ -5,20 +5,20 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="bc_user.registration.form.handler.class">FOS\UserBundle\Form\Handler\RegistrationFormHandler</parameter>
-        <parameter key="bc_user.name.form.type.class">Bc\Bundle\UserBundle\Form\Type\NameFormType</parameter>
+        <parameter key="braincrafted_user.registration.form.handler.class">FOS\UserBundle\Form\Handler\RegistrationFormHandler</parameter>
+        <parameter key="braincrafted_user.name.form.type.class">Braincrafted\Bundle\UserBundle\Form\Type\NameFormType</parameter>
     </parameters>
 
     <services>
 
-        <service id="bc_user.name.form.type" class="%bc_user.name.form.type.class%">
-            <tag name="form.type" alias="bc_name" />
+        <service id="braincrafted_user.name.form.type" class="%braincrafted_user.name.form.type.class%">
+            <tag name="form.type" alias="braincrafted_name" />
         </service>
 
-        <service id="bc_user.registration.form.handler" class="%bc_user.registration.form.handler.class%" scope="request" public="false">
+        <service id="braincrafted_user.registration.form.handler" class="%braincrafted_user.registration.form.handler.class%" scope="request" public="false">
             <argument type="service" id="fos_user.registration.form" />
             <argument type="service" id="request" />
-            <argument type="service" id="bc_user.user_manager" />
+            <argument type="service" id="braincrafted_user.user_manager" />
             <argument type="service" id="fos_user.mailer" />
             <argument type="service" id="fos_user.util.token_generator" />
         </service>

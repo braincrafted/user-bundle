@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of BcUserAdminBundle.
+ * This file is part of BraincraftedUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Menu;
+namespace Braincrafted\Bundle\UserBundle\Menu;
 
 use Symfony\Component\Translation\TranslatorInterface;
 use Knp\Menu\FactoryInterface;
@@ -13,7 +13,7 @@ use Knp\Menu\FactoryInterface;
  * Builder
  *
  * @category   MenuBuilder
- * @package    BcUserAdminBundle
+ * @package    BraincraftedUserAdminBundle
  * @subpackage Menu
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -46,18 +46,18 @@ class Builder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild(
-            $this->translator->trans('menu.users', array(), 'BcUserAdminBundle'),
-            array('route' => 'bc_user_admin_list')
+            $this->translator->trans('menu.users', array(), 'BraincraftedUserAdminBundle'),
+            array('route' => 'braincrafted_user_admin_list')
         );
 
         $menu->addChild(
-            $this->translator->trans('menu.invite', array(), 'BcUserAdminBundle'),
-            array('route' => 'bc_user_admin_invite_list')
+            $this->translator->trans('menu.invite', array(), 'BraincraftedUserAdminBundle'),
+            array('route' => 'braincrafted_user_admin_invite_list')
         );
 
         $menu->addChild(
-            $this->translator->trans('menu.invite_requests', array(), 'BcUserAdminBundle'),
-            array('route' => 'bc_user_admin_invite_request_list')
+            $this->translator->trans('menu.invite_requests', array(), 'BraincraftedUserAdminBundle'),
+            array('route' => 'braincrafted_user_admin_invite_request_list')
         );
 
         return $menu;

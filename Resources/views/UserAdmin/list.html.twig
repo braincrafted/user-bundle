@@ -1,9 +1,9 @@
-{% extends 'BcUserBundle::admin_layout.html.twig' %}
+{% extends 'BraincraftedUserBundle::admin_layout.html.twig' %}
 
-{% block bc_user_admin_content %}
+{% block braincrafted_user_admin_content %}
 
 <div class="page-header">
-    <h1>{{ 'user.users'|trans({}, 'BcUserAdminBundle') }}</h1>
+    <h1>{{ 'admin.user.users'|trans({}, 'BraincraftedUserBundle') }}</h1>
 </div>
 
 {% for flashMessage in app.session.flashbag.get('error') %}
@@ -31,15 +31,15 @@
 {% endfor %}
 
 <div class="btn-toolbar">
-    <div class="btn-group"><a href="{{ path('bc_user_admin_create') }}" class="btn btn-primary">{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</a></div>
+    <div class="btn-group"><a href="{{ path('braincrafted_user_admin_create') }}" class="btn btn-primary">{{ 'admin.user.create_user'|trans({}, 'BraincraftedUserBundle') }}</a></div>
 </div>
 
 <table class="table table-striped table-condensed table-bordered table-hover">
     <thead>
         <tr>
             <th>#</th>
-            <th>{{ 'user.username'|trans({}, 'BcUserAdminBundle') }}</th>
-            <th>{{ 'user.email'|trans({}, 'BcUserAdminBundle') }}</th>
+            <th>{{ 'user.username'|trans({}, 'BraincraftedUserBundle') }}</th>
+            <th>{{ 'user.email'|trans({}, 'BraincraftedUserBundle') }}</th>
             <th></th>
         </tr>
     </thead>
@@ -50,12 +50,12 @@
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>
-                <a href="{{ path('bc_user_admin_update', { 'userId': user.id }) }}" class="btn btn-mini">{{ 'user.update'|trans({}, 'BcUserAdminBundle') }}</a>
-                <a href="{{ path('bc_user_admin_delete', { 'userId': user.id }) }}" class="btn btn-mini">{{ 'user.delete'|trans({}, 'BcUserAdminBundle') }}</a>
+                <a href="{{ path('braincrafted_user_admin_update', { 'userId': user.id }) }}" class="btn btn-mini">{{ 'admin.user.update'|trans({}, 'BraincraftedUserBundle') }}</a>
+                <a href="{{ path('braincrafted_user_admin_delete', { 'userId': user.id }) }}" class="btn btn-mini">{{ 'admin.user.delete'|trans({}, 'BraincraftedUserBundle') }}</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-{% endblock bc_user_admin_content %}
+{% endblock braincrafted_user_admin_content %}

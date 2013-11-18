@@ -6,18 +6,18 @@
 
     <parameters>
 
-        <parameter key="bc_user_admin.menu_builder.class">Bc\Bundle\UserBundle\Menu\Builder</parameter>
+        <parameter key="braincrafted_user_admin.menu_builder.class">Braincrafted\Bundle\UserBundle\Menu\Builder</parameter>
 
     </parameters>
 
     <services>
 
-        <service id="bc_user_admin.menu_builder" class="%bc_user_admin.menu_builder.class%">
+        <service id="braincrafted_user_admin.menu_builder" class="%braincrafted_user_admin.menu_builder.class%">
             <argument type="service" id="knp_menu.factory" />
             <argument type="service" id="translator" />
         </service>
 
-        <service id="bc_user_admin.menu.user_admin" class="Knp\Menu\MenuItem" factory-service="bc_user_admin.menu_builder" factory-method="createUserAdminMenu">
+        <service id="braincrafted_user_admin.menu.user_admin" class="Knp\Menu\MenuItem" factory-service="braincrafted_user_admin.menu_builder" factory-method="createUserAdminMenu">
             <tag name="knp_menu.menu" alias="user_admin" />
         </service>
 

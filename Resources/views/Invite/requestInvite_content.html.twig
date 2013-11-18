@@ -1,9 +1,9 @@
-<form action="{{ path('bc_user_request_invite') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+<form action="{{ path('braincrafted_user_request_invite') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
 
     {{ form_widget(form, {'form_type': 'horizontal'}) }}
 
     <div class="form-actions">
-        <button type="submit" class="btn btn-primary">{{ 'request_invite.submit'|trans({}, 'BcUserBundle') }}</button>
+        <button type="submit" class="btn btn-primary">{{ 'request_invite.submit'|trans({}, 'BraincraftedUserBundle') }}</button>
     </div>
 
 </form>

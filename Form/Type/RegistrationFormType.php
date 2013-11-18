@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Form\Type;
 
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseRegistrationFormType;
 use Symfony\Component\Form\FormInterface;
@@ -16,7 +16,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * RegistrationFormType.
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Form.Type
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -47,13 +47,13 @@ class RegistrationFormType extends BaseRegistrationFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        $builder->add('name', 'bc_name', array(
+        $builder->add('name', 'braincrafted_name', array(
             'label'                 => 'form.registration.name',
-            'translation_domain'    => 'BcUserBundle'
+            'translation_domain'    => 'BraincraftedUserBundle'
         ));
 
         if ($this->inviteRequired) {
-            $builder->add('invite', 'bc_invite');
+            $builder->add('invite', 'braincrafted_invite');
         }
     }
 
@@ -73,6 +73,6 @@ class RegistrationFormType extends BaseRegistrationFormType
      */
     public function getName()
     {
-        return 'bc_user_registration';
+        return 'braincrafted_user_registration';
     }
 }

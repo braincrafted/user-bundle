@@ -1,10 +1,10 @@
 <?php
 
-namespace Bc\Bundle\UserBundle\Tests\Form\Handler;
+namespace Braincrafted\Bundle\UserBundle\Tests\Form\Handler;
 
 use \Mockery as m;
 
-use Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler;
+use Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler;
 
 /**
  * RequestInviteFormHandlerTest
@@ -22,18 +22,18 @@ class RequestInviteFormHandlerTest extends \PHPUnit_Framework_TestCase
     /** @var Symfony\Component\HttpFoundation\Request */
     private $request;
 
-    /** @var Bc\Bundle\UserBundle\Entity\InviteRequestManager */
+    /** @var Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager */
     private $manager;
 
-    /** @var Bc\Bundle\UserBundle\Entity\InviteRequest */
+    /** @var Braincrafted\Bundle\UserBundle\Entity\InviteRequest */
     private $invite;
 
     public function setUp()
     {
         $this->form = m::mock('Symfony\Component\Form\FormInterface');
         $this->request = m::mock('Symfony\Component\HttpFoundation\Request');
-        $this->manager = m::mock('Bc\Bundle\UserBundle\Entity\InviteRequestManager');
-        $this->invite = m::mock('Bc\Bundle\UserBundle\Entity\InviteRequest');
+        $this->manager = m::mock('Braincrafted\Bundle\UserBundle\Entity\InviteRequestManager');
+        $this->invite = m::mock('Braincrafted\Bundle\UserBundle\Entity\InviteRequest');
 
         $this->manager
             ->shouldReceive('createInviteRequest')
@@ -57,11 +57,11 @@ class RequestInviteFormHandlerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>process()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::__construct()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::process()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::createInviteRequest()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::validate()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::onSuccess()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::process()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::createInviteRequest()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::validate()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::onSuccess()
      */
     public function testProcess()
     {
@@ -93,10 +93,10 @@ class RequestInviteFormHandlerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>process()</code> method when the form is invalid.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::__construct()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::process()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::createInviteRequest()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::validate()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::process()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::createInviteRequest()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::validate()
      */
     public function testProcess_InvalidForm()
     {
@@ -128,9 +128,9 @@ class RequestInviteFormHandlerTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>process()</code> method when the request method is not POST.
      *
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::__construct()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::createInviteRequest()
-     * @covers Bc\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::process()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::createInviteRequest()
+     * @covers Braincrafted\Bundle\UserBundle\Form\Handler\RequestInviteFormHandler::process()
      */
     public function testProcess_InvalidRequestType()
     {

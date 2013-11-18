@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Controller;
+namespace Braincrafted\Bundle\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  * InviteController.
  *
  * @category   Controller
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Controller
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -25,7 +25,7 @@ class InviteAdminController extends Controller
      */
     public function listAction()
     {
-        $manager = $this->get('bc_user.invite_manager');
+        $manager = $this->get('braincrafted_user.invite_manager');
 
         $invites = $manager->findInvites();
 
@@ -40,7 +40,7 @@ class InviteAdminController extends Controller
             $sentInvitesPercentage = (100/$totalCount)*($sentCount);
         }
 
-        return $this->render('BcUserBundle:InviteAdmin:list.html.twig', array(
+        return $this->render('BraincraftedUserBundle:InviteAdmin:list.html.twig', array(
             'invites'                   => $invites,
             'usedInvitesPercentage'     => $usedInvitesPercentage,
             'sentInvitesPercentage'     => $sentInvitesPercentage,
@@ -54,13 +54,13 @@ class InviteAdminController extends Controller
      */
     public function createAction()
     {
-        $manager = $this->get('bc_user.invite_manager');
+        $manager = $this->get('braincrafted_user.invite_manager');
         $invite = $manager->createInvite();
         $manager->updateInvite($invite);
 
         $this->get('session')->getFlashBag()->add('success', sprintf('The invite %s has been created.', $invite->getCode()));
 
-        return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+        return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
     }
 
     /**
@@ -70,7 +70,7 @@ class InviteAdminController extends Controller
      */
     public function batchCreateAction($number)
     {
-        $manager = $this->get('bc_user.invite_manager');
+        $manager = $this->get('braincrafted_user.invite_manager');
         for ($i = 0; $i < $number; $i++) {
             $invite = $manager->createInvite();
             $manager->updateInvite($invite, false);
@@ -78,7 +78,7 @@ class InviteAdminController extends Controller
         $manager->flush();
 
         $this->get('session')->getFlashBag()->add('success', sprintf('Created %d invites.', $number));
-        return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+        return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
     }
 
     /**
@@ -88,24 +88,24 @@ class InviteAdminController extends Controller
      */
     public function deleteAction($code)
     {
-        $manager = $this->get('bc_user.invite_manager');
+        $manager = $this->get('braincrafted_user.invite_manager');
         $invite = $manager->findInviteByCode($code);
 
         if (!$invite) {
             $this->get('session')->getFlashBag()->add('error', sprintf('The invite %s does not exist.', $code));
-            return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+            return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
         }
 
         if ($invite->getUser()) {
             $this->get('session')->getFlashBag()->add('error', sprintf('The invite %s has already been used by %s. You can\'t delete an used invite.', $invite->getCode(), $invite->getUser()));
-            return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+            return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
         }
 
         $manager->deleteInvite($invite);
 
         $this->get('session')->getFlashBag()->add('success', sprintf('The invite %s has been deleted.', $invite->getCode()));
 
-        return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+        return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
     }
 
     /**
@@ -115,40 +115,40 @@ class InviteAdminController extends Controller
      */
     public function sendAction($code)
     {
-        $manager = $this->get('bc_user.invite_manager');
+        $manager = $this->get('braincrafted_user.invite_manager');
         $invite = $manager->findInviteByCode($code);
 
         if (!$invite) {
-            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s does not exist.', $code));
+            $this->get('braincrafted_bootstrap.flash')->error(sprintf('The invite %s does not exist.', $code));
 
-            return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+            return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
         }
 
         if (!$invite->getEmail()) {
-            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s does not have an email address associated and can\'t be sent.', $code));
+            $this->get('braincrafted_bootstrap.flash')->error(sprintf('The invite %s does not have an email address associated and can\'t be sent.', $code));
 
-            return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+            return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
         }
 
         if ($invite->getUser()) {
-            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s has already been used by %s. You can\'t send an used invite.', $invite->getCode(), $invite->getUser()));
+            $this->get('braincrafted_bootstrap.flash')->error(sprintf('The invite %s has already been used by %s. You can\'t send an used invite.', $invite->getCode(), $invite->getUser()));
 
-            return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+            return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
         }
 
         if ($invite->isSent()) {
-            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s has already been sent to the email address %s. You can\'t send an used invite.', $invite->getCode(), $invite->getEmail()));
+            $this->get('braincrafted_bootstrap.flash')->error(sprintf('The invite %s has already been sent to the email address %s. You can\'t send an used invite.', $invite->getCode(), $invite->getEmail()));
 
-            return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+            return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
         }
 
         $message = \Swift_Message::newInstance()
-                ->setSubject('Invite for BcUserAdmin')
+                ->setSubject('Invite for BraincraftedUserAdmin')
                 ->setFrom('useradmin@braincrafted.com')
                 ->setTo($invite->getEmail())
                 ->setBody(
                     $this->renderView(
-                        'BcUserBundle:Email:invite.txt.twig',
+                        'BraincraftedUserBundle:Email:invite.txt.twig',
                         array(
                             'email' => $invite->getEmail(),
                             'code'  => $invite->getCode()
@@ -161,8 +161,8 @@ class InviteAdminController extends Controller
         $invite->send();
         $manager->updateInvite($invite);
 
-        $this->get('bc_bootstrap.flash')->success(sprintf('The invite %s has been sent to %s.', $invite->getCode(), $invite->getEmail()));
+        $this->get('braincrafted_bootstrap.flash')->success(sprintf('The invite %s has been sent to %s.', $invite->getCode(), $invite->getEmail()));
 
-        return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
+        return $this->redirect($this->generateUrl('braincrafted_user_admin_invite_list'));
     }
 }

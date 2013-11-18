@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Entity;
+namespace Braincrafted\Bundle\UserBundle\Entity;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 
-use Bc\Bundle\UserBundle\Entity\Invite;
+use Braincrafted\Bundle\UserBundle\Entity\Invite;
 
 /**
  * InviteManager.
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage EntityManager
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -94,7 +94,7 @@ class InviteManager
     {
         $result = $this->objectManager->createQueryBuilder()
             ->select('count(u.invite) AS used')
-            ->from('BcUserBundle:User', 'u')
+            ->from('BraincraftedUserBundle:User', 'u')
             ->where('u.invite IS NOT NULL')
             ->getQuery()
             ->getSingleResult()
@@ -107,7 +107,7 @@ class InviteManager
     {
         $result = $this->objectManager->createQueryBuilder()
             ->select('count(i.code) as sent')
-            ->from('BcUserBundle:Invite', 'i')
+            ->from('BraincraftedUserBundle:Invite', 'i')
             ->where('i.sent = true')
             ->getQuery()
             ->getSingleResult()
@@ -161,7 +161,7 @@ class InviteManager
     {
         $result = $this->objectManager->createQueryBuilder()
             ->select('count(i.code) AS total')
-            ->from('BcUserBundle:Invite', 'i')
+            ->from('BraincraftedUserBundle:Invite', 'i')
             ->getQuery()
             ->getSingleResult()
         ;

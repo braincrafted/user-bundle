@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Controller;
+namespace Braincrafted\Bundle\UserBundle\Controller;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,17 +29,17 @@ class InviteController extends ContainerAware
      */
     public function requestInviteAction()
     {
-        $form = $this->container->get('bc_user.request_invite.form');
-        $formHandler = $this->container->get('bc_user.request_invite.form.handler');
+        $form = $this->container->get('braincrafted_user.request_invite.form');
+        $formHandler = $this->container->get('braincrafted_user.request_invite.form.handler');
 
         $process = $formHandler->process();
 
         if ($process) {
             $inviteRequest = $form->getData();
             $authUser = true;
-            $route = 'bc_user_request_invite_confirmed';
+            $route = 'braincrafted_user_request_invite_confirmed';
 
-            $this->container->get('bc_bootstrap.flash')->success('You have successfully requested an invite.');
+            $this->container->get('braincrafted_bootstrap.flash')->success('You have successfully requested an invite.');
 
             $url = $this->container->get('router')->generate($route);
             $response = new RedirectResponse($url);
@@ -48,7 +48,7 @@ class InviteController extends ContainerAware
         }
 
         return $this->container->get('templating')->renderResponse(
-            'BcUserBundle:Invite:requestInvite.html.'.$this->getEngine(),
+            'BraincraftedUserBundle:Invite:requestInvite.html.'.$this->getEngine(),
             array('form' => $form->createView())
         );
     }
@@ -61,7 +61,7 @@ class InviteController extends ContainerAware
     public function requestInviteConfirmedAction()
     {
         return $this->container->get('templating')->renderResponse(
-            'BcUserBundle:Invite:requestInviteConfirmed.html.'.$this->getEngine()
+            'BraincraftedUserBundle:Invite:requestInviteConfirmed.html.'.$this->getEngine()
         );
     }
 

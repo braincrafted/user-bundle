@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bc\Bundle\UserBundle\Controller;
+namespace Braincrafted\Bundle\UserBundle\Controller;
 
 use FOS\UserBundle\Controller\SecurityController as BaseSecurityController;
 
@@ -48,7 +48,7 @@ class SecurityController extends BaseSecurityController
             'last_username'             => $lastUsername,
             'error'                     => $error,
             'csrf_token'                => $csrfToken,
-            'registration_enabled'      => $this->container->getParameter('bc_user.registration.enabled')
+            'registration_enabled'      => $this->container->getParameter('braincrafted_user.registration.enabled')
         ));
     }
 }

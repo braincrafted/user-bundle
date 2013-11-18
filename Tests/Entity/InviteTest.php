@@ -1,21 +1,21 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  *
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Tests\Entity;
+namespace Braincrafted\Bundle\UserBundle\Tests\Entity;
 
 use \Mockery as m;
 
-use Bc\Bundle\UserBundle\Entity\Invite;
+use Braincrafted\Bundle\UserBundle\Entity\Invite;
 
 /**
  * InviteTest
  *
  * @category    Tests
- * @package     BcUserBundle
+ * @package     BraincraftedUserBundle
  * @subpackage  Entity
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer
@@ -35,8 +35,8 @@ class InviteTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>__construct()</code> method.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::__construct()
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::getCode()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::__construct()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::getCode()
      */
     public function testConstruct_getCode()
     {
@@ -46,8 +46,8 @@ class InviteTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setEmail()</code> and <code>getEmail()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::setEmail()
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::getEmail()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::setEmail()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::getEmail()
      */
     public function testSetEmail_getEmail()
     {
@@ -58,8 +58,8 @@ class InviteTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>send()</code> and <code>isSent()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::send()
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::isSent()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::send()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::isSent()
      */
     public function testSend_isSent()
     {
@@ -70,12 +70,12 @@ class InviteTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setUser()</code> and <code>getUser()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::setUser()
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::getUser()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::setUser()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::getUser()
      */
     public function testSetUser_getUser()
     {
-        $user = m::mock('Bc\Bundle\UserBundle\Entity\User');
+        $user = m::mock('Braincrafted\Bundle\UserBundle\Entity\User');
         $user->shouldReceive('setInvite')->with($this->invite);
         $this->invite->setUser($user);
         $this->assertEquals($user, $this->invite->getUser());
@@ -84,8 +84,8 @@ class InviteTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setCreatedAt()</code> and <code>getCreatedAt()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::setCreatedAt()
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::getCreatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::setCreatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::getCreatedAt()
      */
     public function testSetCreatedAt_getCreatedAt()
     {
@@ -97,8 +97,8 @@ class InviteTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests the <code>setUdpatedAt()</code> and <code>getUpdatedAt()</code> methods.
      *
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::setUpdatedAt()
-     * @covers Bc\Bundle\UserBundle\Entity\Invite::getUpdatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::setUpdatedAt()
+     * @covers Braincrafted\Bundle\UserBundle\Entity\Invite::getUpdatedAt()
      */
     public function testSetUpdatedAt_getUpdatedAt()
     {

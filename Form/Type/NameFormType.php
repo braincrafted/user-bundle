@@ -1,21 +1,21 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\Form\Type;
+namespace Braincrafted\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
-use Bc\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
+use Braincrafted\Bundle\UserBundle\Form\DataTransformer\InviteToCodeTransformer;
 
 /**
  * NameFormType
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage Form.Type
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
@@ -31,7 +31,7 @@ class NameFormType extends AbstractType
             'firstName',
             'text',
             array(
-                'translation_domain'            => 'BcUserBundle',
+                'translation_domain'            => 'BraincraftedUserBundle',
                 'attr' => array('placeholder'   => 'form.name.first_name')
             )
         );
@@ -39,7 +39,7 @@ class NameFormType extends AbstractType
             'lastName',
             'text',
             array(
-                'translation_domain'            => 'BcUserBundle',
+                'translation_domain'            => 'BraincraftedUserBundle',
                 'attr' => array('placeholder'   => 'form.name.last_name')
             )
         );
@@ -61,6 +61,6 @@ class NameFormType extends AbstractType
      */
     public function getName()
     {
-        return 'bc_name';
+        return 'braincrafted_name';
     }
 }

@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of BcUserBundle.
+ * This file is part of BraincraftedUserBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
-namespace Bc\Bundle\UserBundle\DependencyInjection;
+namespace Braincrafted\Bundle\UserBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -15,19 +15,19 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
- * BcUserExtension
+ * BraincraftedUserExtension
  *
- * @package    BcUserBundle
+ * @package    BraincraftedUserBundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
  * @license    http://opensource.org/licenses/MIT The MIT License
  * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
  */
-class BcUserExtension extends Extension implements PrependExtensionInterface
+class BraincraftedUserExtension extends Extension implements PrependExtensionInterface
 {
     /** @var string */
-    private $formTemplate = 'BcUserBundle:Form:form_div_layout.html.twig';
+    private $formTemplate = 'BraincraftedUserBundle:Form:form_div_layout.html.twig';
 
     /**
      * {@inheritDoc}
@@ -46,12 +46,12 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
         if (!isset($config['registration']['enabled'])) {
             throw new \InvalidArgumentException('The option "registration.enabled" must be set.');
         }
-        $container->setParameter('bc_user.registration.enabled', $config['registration']['enabled']);
+        $container->setParameter('braincrafted_user.registration.enabled', $config['registration']['enabled']);
 
         if (!isset($config['registration']['invite_required'])) {
             throw new \InvalidArgumentException('The option "registration.invite_required" must be set.');
         }
-        $container->setParameter('bc_user.registration.invite_required', $config['registration']['invite_required']);
+        $container->setParameter('braincrafted_user.registration.invite_required', $config['registration']['invite_required']);
 
         if (!isset($config['db_driver'])) {
             throw new \InvalidArgumentException('The option "db_driver" must be set.');
@@ -61,19 +61,19 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
         }
 
         if (!isset($config['user_class'])) {
-            throw new \InvalidArgumentException('The option "bc_user.user_class" must be set.');
+            throw new \InvalidArgumentException('The option "braincrafted_user.user_class" must be set.');
         }
-        $container->setParameter('bc_user.user.class', $config['user_class']);
+        $container->setParameter('braincrafted_user.user.class', $config['user_class']);
 
         if (!isset($config['invite_class'])) {
-            throw new \InvalidArgumentException('The option "bc_user.invite_class" must be set.');
+            throw new \InvalidArgumentException('The option "braincrafted_user.invite_class" must be set.');
         }
-        $container->setParameter('bc_user.invite.class', $config['invite_class']);
+        $container->setParameter('braincrafted_user.invite.class', $config['invite_class']);
 
         if (!isset($config['invite_request_class'])) {
-            throw new \InvalidArgumentException('The option "bc_user.invite_request_class" must be set.');
+            throw new \InvalidArgumentException('The option "braincrafted_user.invite_request_class" must be set.');
         }
-        $container->setParameter('bc_user.invite_request.class', $config['invite_request_class']);
+        $container->setParameter('braincrafted_user.invite_request.class', $config['invite_request_class']);
 
         if (!empty($config['request_invite'])) {
             $this->loadInvite($config['request_invite'], $container, $loader);
@@ -103,7 +103,7 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
         }
 
         // Configure Twig if TwigBundle is activated and the option
-        // "bc_bootstrap.auto_configure.twig" is set to TRUE (default value).
+        // "braincrafted_bootstrap.auto_configure.twig" is set to TRUE (default value).
         if (isset($bundles['TwigBundle'])) {
             $this->configureTwigBundle($container);
         }
@@ -142,12 +142,12 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
                         array(
                             'db_driver'     => $config['db_driver'],
                             'firewall_name' => $config['firewall_name'],
-                            'user_class'    => 'Bc\Bundle\UserBundle\Entity\User',
+                            'user_class'    => 'Braincrafted\Bundle\UserBundle\Entity\User',
                             'registration'  => array(
                                 'form' => array(
-                                    'type'                  => 'bc_user_registration',
+                                    'type'                  => 'braincrafted_user_registration',
                                     'validation_groups'     => $registrationValidationGroups,
-                                    'handler'               => 'bc_user.registration.form.handler'
+                                    'handler'               => 'braincrafted_user.registration.form.handler'
                                 )
                             )
                         )
@@ -210,14 +210,14 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
     /**
      * Builds the configuration for AsseticBundle.
      *
-     * @param array $config The BcUserAdmin configuration
+     * @param array $config The BraincraftedUserAdmin configuration
      *
      * @return array The configuration for AsseticBundle
      */
     private function buildAsseticConfig(array $config)
     {
         $output = array(
-            'bc_user_admin_css' => array(
+            'braincrafted_user_admin_css' => array(
                 'inputs'    => array(
                     __DIR__.'/../Resources/sass/user-admin.scss'
                 ),
@@ -233,13 +233,13 @@ class BcUserExtension extends Extension implements PrependExtensionInterface
     {
         $loader->load('invite.xml');
 
-        $container->setAlias('bc_user.request_invite.form.handler', $config['form']['handler']);
+        $container->setAlias('braincrafted_user.request_invite.form.handler', $config['form']['handler']);
         unset($config['form']['handler']);
 
         $this->remapParametersNamespaces(
             $config,
             $container,
-            array('form' => 'bc_user.request_invite.form.%s')
+            array('form' => 'braincrafted_user.request_invite.form.%s')
         );
     }
 

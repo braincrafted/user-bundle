@@ -13,12 +13,12 @@
         <default key="_controller">FOSUserBundle:Profile:edit</default>
     </route>
 
-    <route id="bc_user_delete" pattern="/delete-profile">
-        <default key="_controller">BcUserBundle:Profile:delete</default>
+    <route id="braincrafted_user_delete" pattern="/delete-profile">
+        <default key="_controller">BraincraftedUserBundle:Profile:delete</default>
     </route>
 
-    <route id="bc_user_delete_success" pattern="/delete-profile/success/{username}">
-        <default key="_controller">BcUserBundle:Profile:deleteSuccess</default>
+    <route id="braincrafted_user_delete_success" pattern="/delete-profile/success/{username}">
+        <default key="_controller">BraincraftedUserBundle:Profile:deleteSuccess</default>
     </route>
 
 </routes>
