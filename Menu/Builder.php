@@ -46,17 +46,17 @@ class Builder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild(
-            $this->translator->trans('menu.users', array(), 'BraincraftedUserAdminBundle'),
+            $this->translator->trans('admin.menu.users', array(), 'BraincraftedUserBundle'),
             array('route' => 'braincrafted_user_admin_list')
         );
 
         $menu->addChild(
-            $this->translator->trans('menu.invite', array(), 'BraincraftedUserAdminBundle'),
+            $this->translator->trans('admin.menu.invite', array(), 'BraincraftedUserBundle'),
             array('route' => 'braincrafted_user_admin_invite_list')
         );
 
         $menu->addChild(
-            $this->translator->trans('menu.invite_requests', array(), 'BraincraftedUserAdminBundle'),
+            $this->translator->trans('admin.menu.invite_requests', array(), 'BraincraftedUserBundle'),
             array('route' => 'braincrafted_user_admin_invite_request_list')
         );
 
