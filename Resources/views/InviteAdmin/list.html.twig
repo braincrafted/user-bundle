@@ -22,14 +22,12 @@
     </div>
 </div>
 
-<div class="btn-toolbar">
-    <a href="{{ path('braincrafted_user_admin_invite_create') }}" class="btn btn-small btn-primary">Create invite</a>
-    <div class="btn-group">
-        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 5 }) }}" class="btn btn-small">5</a>
-        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 10 }) }}" class="btn btn-small">10</a>
-        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 50 }) }}" class="btn btn-small">50</a>
-        <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 100 }) }}" class="btn btn-small">100</a>
-    </div>
+<a href="{{ path('braincrafted_user_admin_invite_create') }}" class="btn btn-small btn-primary">Create invite</a>
+<div class="btn-group">
+    <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 5 }) }}" class="btn btn-small">5</a>
+    <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 10 }) }}" class="btn btn-small">10</a>
+    <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 50 }) }}" class="btn btn-small">50</a>
+    <a href="{{ path('braincrafted_user_admin_invite_batch_create', { 'number': 100 }) }}" class="btn btn-small">100</a>
 </div>
 
 <table class="table table-bordered table-condensed table-striped table-hover">
@@ -51,9 +49,9 @@
             <td>{{ invite.user ? invite.user : '' }}</td>
             <td>
                 {% if invite.email and not invite.isSent and not invite.user %}
-                    <a href="{{ path('braincrafted_user_admin_invite_send', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-share-alt"></i> Send</a>
+                    <a href="{{ path('braincrafted_user_admin_invite_send', { 'code': invite.code }) }}"><i class="glyphicon glyphicon-share-alt"></i> Send</a>
                 {% endif %}
-                <a href="{{ path('braincrafted_user_admin_invite_delete', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-remove"></i> Delete</a>
+                <a href="{{ path('braincrafted_user_admin_invite_delete', { 'code': invite.code }) }}"><i class="glyphicon glyphicon-remove"></i> Delete</a>
             </td>
         </tr>
     {% endfor %}

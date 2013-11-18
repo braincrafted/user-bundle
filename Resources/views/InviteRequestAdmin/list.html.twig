@@ -22,7 +22,7 @@
             <td>{{ inviteRequest.email }}</td>
             <td>{{ inviteRequest.createdAt|date('Y-m-d') }}</td>
             <td>
-                <a href="{{ path('braincrafted_user_admin_invite_request_invite', { 'inviteRequestId': inviteRequest.id }) }}" class="btn btn-mini">{{ 'admin.invite_request.table.invite'|trans({}, 'BraincraftedUserBundle') }}</a>
+                <a href="{{ path('braincrafted_user_admin_invite_request_invite', { 'inviteRequestId': inviteRequest.id }) }}">{{ 'admin.invite_request.table.invite'|trans({}, 'BraincraftedUserBundle') }}</a>
             </td>
         </tr>
         {% endfor %}

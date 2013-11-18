@@ -30,11 +30,11 @@
     </div>
 {% endfor %}
 
-<div class="btn-toolbar">
-    <div class="btn-group"><a href="{{ path('braincrafted_user_admin_create') }}" class="btn btn-primary">{{ 'admin.user.create_user'|trans({}, 'BraincraftedUserBundle') }}</a></div>
+<div class="btn-group">
+    <a href="{{ path('braincrafted_user_admin_create') }}" class="btn btn-primary">{{ 'admin.user.create_user'|trans({}, 'BraincraftedUserBundle') }}</a>
 </div>
 
-<table class="table table-striped table-condensed table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
             <th>#</th>
@@ -50,8 +50,8 @@
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>
-                <a href="{{ path('braincrafted_user_admin_update', { 'userId': user.id }) }}" class="btn btn-mini">{{ 'admin.user.update'|trans({}, 'BraincraftedUserBundle') }}</a>
-                <a href="{{ path('braincrafted_user_admin_delete', { 'userId': user.id }) }}" class="btn btn-mini">{{ 'admin.user.delete'|trans({}, 'BraincraftedUserBundle') }}</a>
+                <a href="{{ path('braincrafted_user_admin_update', { 'userId': user.id }) }}">{{ 'admin.user.update'|trans({}, 'BraincraftedUserBundle') }}</a>
+                <a href="{{ path('braincrafted_user_admin_delete', { 'userId': user.id }) }}">{{ 'admin.user.delete'|trans({}, 'BraincraftedUserBundle') }}</a>
             </td>
         </tr>
         {% endfor %}
