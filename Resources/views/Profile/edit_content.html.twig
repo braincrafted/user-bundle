@@ -6,13 +6,18 @@
 
 <hr>
 
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal" role="form">
 
-    {{ form_widget(form, {'form_type': 'horizontal'}) }}
+    {{ bootstrap_set_style('horizontal') }}
+    {{ form_widget(form, {'style': 'horizontal'}) }}
 
-    <div class="form-actions">
-        <button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}</button>
+        </div>
     </div>
+
+    {{ bootstrap_set_style('') }}
 
 </form>
 
